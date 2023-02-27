@@ -5,12 +5,12 @@
   align-items: center;
   padding: 6rem;
   height: 100vh;
-  background-color: black;
+  background-color: white;
 }
 
 .link {
   text-decoration: none;
   font-size: 48px;
-  color: white;
-  border: solid 1px white;
+  color: black;
+  border: solid 1px black;
 }

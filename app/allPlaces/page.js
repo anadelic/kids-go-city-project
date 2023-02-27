@@ -1,32 +1,27 @@
-import mbxGeocoding from '@mapbox/mapbox-sdk/services/geocoding';
+import { getPlaces } from '../../databasa/places';
+import Map from './map';
 
-const mapBoxToken = process.env.MAP_BOX_TOKEN;
-const geoCoder = mbxGeocoding({
-  accessToken: mapBoxToken,
-});
+export const dynamic = 'force-dynamic';
 
-export default function PlacesPage() {
-  geoCoder
-    .forwardGeocode({
-      query: 'Dschungel, Wien',
-      limit: 1,
-    })
-    .send()
-    .then((response) => {
-      const match = response.body;
+export const metadata = {
+  title: 'KidsGoCity|Places',
+  description: 'Here you can find your fun for today',
+};
 
-      console.log(match);
-    });
-
+export default async function AllPlacesPage() {
+  const places = await getPlaces();
   return (
-    <>
-      <h1>here is a page with all places</h1>;
-      <br />
-      <br />
-      <h2> here is a map with place's pins</h2>
-      <br />
-      <br />
-      <h3> here is a list of places sorted in categories </h3>
-    </>
+    <div>
+      <Map places={places} />;
+      <div>
+        {places.map((place) => {
+          return (
+            <div key={`product-${place.id}`}>
+              <h2>{place.placeName}</h2>
+            </div>
+          );
+        })}
+      </div>
+    </div>
   );
 }
