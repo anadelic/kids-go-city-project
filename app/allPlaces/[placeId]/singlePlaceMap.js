@@ -4,11 +4,11 @@ import 'leaflet-defaulticon-compatibility/dist/leaflet-defaulticon-compatibility
 // import * as L from 'leaflet';
 import 'leaflet-defaulticon-compatibility';
 import { Marker, Popup } from 'react-leaflet';
+// import { useMap } from 'react-leaflet/hooks';
 import { MapContainer } from 'react-leaflet/MapContainer';
 import { TileLayer } from 'react-leaflet/TileLayer';
 
-export default function Map(props) {
-  // centering the map
+export default function SinglePlaceMap(props) {
   const position = [48.2042154830387, 16.368015018501982];
 
   return (
@@ -25,14 +25,15 @@ export default function Map(props) {
           attribution='&copy; <a href="http://www.openstreetmap.org/copyright"'
           url="https://tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
-        {props.places.map((place) => (
-          <Marker
-            key={`place-${place.id}`}
-            position={{ lat: place.latcoord, lng: place.longcoord }}
-          >
-            <Popup>{place.placeName}</Popup>
-          </Marker>
-        ))}
+
+        <Marker
+          position={{
+            lat: props.places.latcoord,
+            lng: props.places.longcoord,
+          }}
+        >
+          <Popup>{props.places.placeName}</Popup>
+        </Marker>
       </MapContainer>
     </div>
   );
