@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import Star from './star';
+import Star from './Star';
 
 function StarRating({ onChange }) {
   const [rating, setRating] = useState(0);

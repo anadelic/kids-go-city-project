@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { getPlaces } from '../../databasa/places';
-import Map from './map';
+import Map from './Map';
 
 export const dynamic = 'force-dynamic';
 

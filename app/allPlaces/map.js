@@ -30,7 +30,11 @@ export default function Map(props) {
             key={`place-${place.id}`}
             position={{ lat: place.latcoord, lng: place.longcoord }}
           >
-            <Popup>{place.placeName}</Popup>
+            <Popup>
+              {place.placeName}
+              <br />
+              {place.placeAdress}
+            </Popup>
           </Marker>
         ))}
       </MapContainer>
