@@ -7,8 +7,15 @@ const inter = Inter({ subsets: ['latin'] });
 export default function Home() {
   return (
     <main className={styles.main}>
-      <Link className={styles.link} href="/allPlaces" tabindex="0" role="link">
-        KidsGoVienna
+      <section className={styles.section}>
+        <h1>Vienna with little ones </h1>
+        <br />
+        <p>Welcome to Vienna with little ones </p>
+        <br />
+        <p>Feel free to share your favorite places</p>
+      </section>
+      <Link className={styles.link} href="/allPlaces">
+        View places
       </Link>
     </main>
   );
