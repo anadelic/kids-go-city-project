@@ -7,6 +7,8 @@ export const places = [
     latcoord: '48.202175499999996',
     longcoord: '16.360151000000002',
     place_adress: 'MuseumsQuartier Wien',
+    image_url:
+      'https://res.cloudinary.com/df7205fx8/image/upload/v1678103483/myproject/dschungel_g5nmto.jpg',
   },
   {
     id: '2',
@@ -16,6 +18,8 @@ export const places = [
     latcoord: '48.200777',
     longcoord: '16.399163',
     place_adress: 'Göllnergasse 8, 1030 Wien',
+    image_url:
+      'https://res.cloudinary.com/df7205fx8/image/upload/v1678103571/myproject/lilarum_uvw209.jpg',
   },
 
   {
@@ -26,6 +30,8 @@ export const places = [
     latcoord: '48.209536',
     longcoord: '16.354413',
     place_adress: 'Lenaugasse 1A, 1080 Wien',
+    image_url:
+      'https://res.cloudinary.com/df7205fx8/image/upload/v1678104425/myproject/unnamed_2_melmm9.jpg',
   },
   {
     id: '4',
@@ -34,6 +40,8 @@ export const places = [
     latcoord: '48.21151',
     longcoord: '16.383888',
     place_adress: 'Uraniastraße 1, 1010 Wien',
+    image_url:
+      'https://res.cloudinary.com/df7205fx8/image/upload/v1678103447/myproject/kasperlundpezi_sle5tz.jpg',
   },
   {
     id: '5',
@@ -43,6 +51,8 @@ export const places = [
     latcoord: '48.203689499999996',
     longcoord: '16.3576845',
     place_adress: 'Museumsplatz 1, 1070 Wien',
+    image_url:
+      'https://res.cloudinary.com/df7205fx8/image/upload/v1678102998/myproject/mumok.jpg',
   },
   {
     id: '6',
@@ -52,6 +62,8 @@ export const places = [
     latcoord: '48.20518',
     longcoord: '16.359567',
     place_adress: 'Burgring 7, 1010 Wien',
+    image_url:
+      'https://res.cloudinary.com/df7205fx8/image/upload/v1678103313/myproject/naturalhistorymuseum_oblwpz.jpg',
   },
   {
     id: '7',
@@ -61,6 +73,8 @@ export const places = [
     latcoord: '48.202799999999996',
     longcoord: '16.3593415',
     place_adress: 'Museumsplatz 1, 1070 Wien',
+    image_url:
+      'https://res.cloudinary.com/df7205fx8/image/upload/v1678102964/myproject/kinderMuseum.jpg',
   },
   {
     id: '8',
@@ -70,6 +84,8 @@ export const places = [
     latcoord: '48.1906655',
     longcoord: '16.317726',
     place_adress: 'Mariahilfer Str. 212, 1140 Wien',
+    image_url:
+      'https://res.cloudinary.com/df7205fx8/image/upload/v1678102992/myproject/technischesMuseum.jpg',
   },
   {
     id: '9',
@@ -79,6 +95,8 @@ export const places = [
     latcoord: '48.264097',
     longcoord: '16.320402',
     place_adress: 'Am Cobenzl 96a, 1190 Wien',
+    image_url:
+      'https://res.cloudinary.com/df7205fx8/image/upload/v1678102981/myproject/cobenzl.jpg',
   },
   {
     id: '10',
@@ -88,6 +106,8 @@ export const places = [
     latcoord: '48.225075',
     longcoord: '16.413625',
     place_adress: 'Donauinsel, 1220 Wien',
+    image_url:
+      'https://res.cloudinary.com/df7205fx8/image/upload/v1678103321/myproject/wasserspielplatz_x6meoo.jpg',
   },
 ];
 
@@ -100,6 +120,7 @@ export async function up(sql) {
       'latcoord',
       'longcoord',
       'place_adress',
+      'image_url',
     )}
   `;
 }

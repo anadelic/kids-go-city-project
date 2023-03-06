@@ -1,17 +1,22 @@
 import Image from 'next/image';
 import { getPlaceById } from '../../../databasa/places';
+import { getReviews } from '../../../databasa/reviews';
+import DeleteReview from '../../components/DeleteReview';
+import AddingPost from '../../components/ReviewForm';
 import StarRating from '../../components/StarsRating';
 import SinglePlaceMap from './singlePlaceMap';
 
 export default async function SinglePlacePage(props) {
   const singlePlace = await getPlaceById(props.params.placeId);
-
-  console.log(singlePlace.id);
+  const reviews = await getReviews();
+  const filteredReviews = reviews.filter(
+    (review) => review.placeId === singlePlace.id,
+  );
 
   return (
     <main>
       <Image
-        src={`/images/${singlePlace?.id}.jpg`}
+        src={singlePlace.imageUrl}
         alt="Image of a place"
         width="500"
         height="500"
@@ -20,13 +25,21 @@ export default async function SinglePlacePage(props) {
       <h1>{singlePlace.placeName}</h1>
       <p>{singlePlace.placeDescription}</p>
       <p>{singlePlace.placeAdress}</p>
+
+      <p>Leave a review:</p>
       <StarRating />
-      <p>Leave a review</p>
-      <label>
-        Review text: <input />
-      </label>
-      <button>Submit</button>
-      <h2>All reviews</h2>
+      <AddingPost singlePlace={singlePlace} />
+      <h2>All reviews:</h2>
+      {filteredReviews.map((review) => {
+        return (
+          <div key={`review-${review.id}`}>
+            <h2>{review.title}</h2>
+            <p>{review.reviewText}</p>
+
+            <DeleteReview reviews={review} />
+          </div>
+        );
+      })}
     </main>
   );
 }

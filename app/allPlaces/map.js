@@ -1,7 +1,6 @@
 'use client';
 import 'leaflet/dist/leaflet.css';
 import 'leaflet-defaulticon-compatibility/dist/leaflet-defaulticon-compatibility.webpack.css'; // Re-uses images from ~leaflet package
-// import * as L from 'leaflet';
 import 'leaflet-defaulticon-compatibility';
 import { Marker, Popup } from 'react-leaflet';
 import { MapContainer } from 'react-leaflet/MapContainer';
@@ -12,12 +11,12 @@ export default function Map(props) {
   const position = [48.2042154830387, 16.368015018501982];
 
   return (
-    <div>
+    <div id="map">
       <MapContainer
         center={position}
         zoom={11}
         scrollWheelZoom={true}
-        style={{ height: 500, width: 500 }}
+        style={{ height: 500, width: 900 }}
         // whenCreated={setMap}
         animate={true}
       >

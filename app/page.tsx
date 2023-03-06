@@ -2,7 +2,11 @@ import { Inter } from '@next/font/google';
 import Link from 'next/link';
 import styles from './page.module.css';
 
-const inter = Inter({ subsets: ['latin'] });
+export const metadata = {
+  title: 'Vienna with little ones: A Guide for Parents and Kids',
+  description:
+    "Discover the best family-friendly places in Vienna with our comprehensive guide. From parks and museums to kid-friendly restaurants and activities, we've got you covered.",
+};
 
 export default function Home() {
   return (
