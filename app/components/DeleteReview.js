@@ -4,7 +4,6 @@ import { useState } from 'react';
 
 export default function DeleteReview(props) {
   const [error, setError] = useState('');
-  const [reviews, setReviews] = useState('');
   const router = useRouter();
 
   return (

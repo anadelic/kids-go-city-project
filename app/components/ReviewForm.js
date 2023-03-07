@@ -21,6 +21,7 @@ export default function AddingPost(props) {
             title: title,
             reviewText: reviewText,
             starRating: starRating,
+            userId: props.user.id,
             placeId: props.singlePlace.id,
           }),
         });
@@ -51,14 +52,8 @@ export default function AddingPost(props) {
           onChange={(event) => setReviewText(event.currentTarget.value)}
         />
       </label>
+
       {/* Input for review rating, still have to add*/}
-      <label>
-        Rate:
-        <input
-          value={starRating}
-          onChange={(event) => setStarRating(event.currentTarget.value)}
-        />
-      </label>
 
       <button
         onClick={() => {

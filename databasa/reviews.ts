@@ -48,13 +48,14 @@ export const createReview = cache(
     title: string,
     reviewText: string,
     starRating: string,
+    userId: number,
     placeId: number,
   ) => {
     const [review] = await sql<Review[]>`
       INSERT INTO reviews
-        (title, review_text, star_rating, place_id)
+        (title, review_text, star_rating, user_id, place_id)
       VALUES
-        (${title}, ${reviewText}, ${starRating}, ${placeId})
+        (${title}, ${reviewText}, ${starRating}, ${userId}, ${placeId})
       RETURNING *
     `;
     return review;

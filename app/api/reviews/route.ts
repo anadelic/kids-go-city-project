@@ -6,6 +6,7 @@ const reviewType = z.object({
   title: z.string(),
   reviewText: z.string(),
   starRating: z.string(),
+  userId: z.number(),
   placeId: z.number(),
 });
 
@@ -29,6 +30,7 @@ export async function POST(request: NextRequest) {
     result.data.title,
     result.data.reviewText,
     result.data.starRating,
+    result.data.userId,
     result.data.placeId,
   );
 

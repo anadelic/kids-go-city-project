@@ -1,17 +1,35 @@
+import { cookies } from 'next/headers';
 import Image from 'next/image';
 import { getPlaceById } from '../../../databasa/places';
 import { getReviews } from '../../../databasa/reviews';
+import { getUserBySessionToken, getUsers } from '../../../databasa/user';
 import DeleteReview from '../../components/DeleteReview';
 import AddingPost from '../../components/ReviewForm';
 import StarRating from '../../components/StarsRating';
 import SinglePlaceMap from './singlePlaceMap';
 
 export default async function SinglePlacePage(props) {
+  const allUsers = await getUsers();
+  console.log(allUsers);
+
+  // getting single place from database
   const singlePlace = await getPlaceById(props.params.placeId);
+  // getting all reviews and filter them to a reviews for a single place
   const reviews = await getReviews();
   const filteredReviews = reviews.filter(
     (review) => review.placeId === singlePlace.id,
   );
+  const users = allUsers.filter((user) => user.id === filteredReviews.userId);
+  console.log(users);
+
+  const cookieStore = cookies();
+  const sessionToken = cookieStore.get('sessionToken');
+
+  // 2. validate that session
+  // 3. get the user profile matching the session
+  const user = !sessionToken?.value
+    ? undefined
+    : await getUserBySessionToken(sessionToken.value);
 
   return (
     <main>
@@ -26,17 +44,18 @@ export default async function SinglePlacePage(props) {
       <p>{singlePlace.placeDescription}</p>
       <p>{singlePlace.placeAdress}</p>
 
-      <p>Leave a review:</p>
-      <StarRating />
-      <AddingPost singlePlace={singlePlace} />
+      {user && <p>Leave a review:</p>}
+      {user && <StarRating />}
+      {user && <AddingPost singlePlace={singlePlace} user={user} />}
       <h2>All reviews:</h2>
       {filteredReviews.map((review) => {
         return (
           <div key={`review-${review.id}`}>
+            {users.username}
             <h2>{review.title}</h2>
             <p>{review.reviewText}</p>
 
-            <DeleteReview reviews={review} />
+            {user && <DeleteReview reviews={review} />}
           </div>
         );
       })}

@@ -1,15 +1,18 @@
 import { cache } from 'react';
 import { sql } from './connect';
 
-type User = {
+export type User = {
   id: number;
   username: string;
-  passwordHash: string;
 };
 
-type UserWithPasswordHash = User & {
-  passwordHash: string;
-};
+export const getUsers = cache(async () => {
+  const users = await sql<User[]>`
+    SELECT * FROM users
+  `;
+
+  return users;
+});
 
 export const getUserBySessionToken = cache(async (token: string) => {
   const [user] = await sql<{ id: number; username: string }[]>`

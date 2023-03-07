@@ -1,6 +1,14 @@
 import { cookies } from 'next/headers';
 import { NextResponse } from 'next/server';
-import { getUserBySessionToken } from '../../../databasa/user';
+import { getUserBySessionToken, User } from '../../../databasa/user';
+
+export type ProfileResponseBodyGet =
+  | {
+      error: string;
+    }
+  | {
+      user: User;
+    };
 
 export async function GET(): Promise<NextResponse> {
   // this is a protected Route Handler

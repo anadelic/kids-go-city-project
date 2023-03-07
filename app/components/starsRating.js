@@ -13,7 +13,7 @@ function StarRating({ onChange }) {
     <span>
       {[1, 2, 3, 4, 5].map((value) => (
         <Star
-          key={value}
+          key={`value-${value}`}
           filled={value <= rating}
           onClick={() => changeRating(value)}
         />
