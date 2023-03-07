@@ -23,6 +23,7 @@ export default function AddingPost(props) {
             starRating: starRating,
             userId: props.user.id,
             placeId: props.singlePlace.id,
+            userName: props.user.username,
           }),
         });
 

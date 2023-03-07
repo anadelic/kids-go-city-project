@@ -7,6 +7,7 @@ export async function up(sql) {
     star_rating varchar (50),
     user_id integer REFERENCES users(id) ON DELETE CASCADE,
     place_id integer REFERENCES places(id) ON DELETE CASCADE,
+    user_name varchar REFERENCES users(username) ON DELETE CASCADE,
     created_at TIMESTAMP NOT NULL DEFAULT NOW()
 
   )`;

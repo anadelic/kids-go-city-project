@@ -1,21 +1,22 @@
 import { cookies } from 'next/headers';
 import { NextRequest, NextResponse } from 'next/server';
 import { z } from 'zod';
-import { createReview } from '../../../databasa/reviews';
+import { createNewPlace } from '../../../databasa/places';
 import { getUserBySessionToken } from '../../../databasa/user';
 
-const reviewType = z.object({
-  title: z.string(),
-  reviewText: z.string(),
-  starRating: z.string(),
+const placeType = z.object({
+  placeName: z.string(),
+  placeAdress: z.string(),
+  imageUrl: z.string(),
+  placeDescription: z.string(),
   userId: z.number(),
-  placeId: z.number(),
-  userName:z.string()
+  latCoord: z.string(),
+  longCoord: z.string(),
 });
 
 export async function POST(request: NextRequest) {
   const body = await request.json();
-  const result = reviewType.safeParse(body);
+  const result = placeType.safeParse(body);
   const cookieStore = cookies();
   const token = cookieStore.get('sessionToken');
 
@@ -39,14 +40,15 @@ export async function POST(request: NextRequest) {
     );
   }
 
-  const newReview = await createReview(
-    result.data.title,
-    result.data.reviewText,
-    result.data.starRating,
+  const newPlace = await createNewPlace(
+    result.data.placeName,
+    result.data.placeAdress,
+    result.data.imageUrl,
+    result.data.placeDescription,
     result.data.userId,
-    result.data.placeId,
-    result.data.userName,
+    result.data.latCoord,
+    result.data.longCoord,
   );
 
-  return NextResponse.json({ reviews: newReview });
+  return NextResponse.json({ places: newPlace });
 }

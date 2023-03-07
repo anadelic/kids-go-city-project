@@ -1,6 +1,7 @@
+import { cookies } from 'next/headers';
 import { NextRequest, NextResponse } from 'next/server';
-import { z } from 'zod';
 import { deleteReviewById, getreviewById } from '../../../../databasa/reviews';
+import { getUserBySessionToken } from '../../../../databasa/user';
 
 export async function GET(
   request: NextRequest,
@@ -26,6 +27,16 @@ export async function DELETE(
   request: NextRequest,
   { params }: { params: Record<string, string | string[]> },
 ) {
+  const cookieStore = cookies();
+  const token = cookieStore.get('sessionToken');
+
+  // 2. validate that session
+  // 3. get the user profile matching the session
+  const user = token && (await getUserBySessionToken(token.value));
+
+  if (!user) {
+    return NextResponse.json({ error: 'session token is not valid' });
+  }
   const reviewId = Number(params.reviewId);
 
   if (!reviewId) {

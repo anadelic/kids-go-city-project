@@ -2,25 +2,21 @@ import { cookies } from 'next/headers';
 import Image from 'next/image';
 import { getPlaceById } from '../../../databasa/places';
 import { getReviews } from '../../../databasa/reviews';
-import { getUserBySessionToken, getUsers } from '../../../databasa/user';
+import { getUserBySessionToken } from '../../../databasa/user';
 import DeleteReview from '../../components/DeleteReview';
 import AddingPost from '../../components/ReviewForm';
 import StarRating from '../../components/StarsRating';
 import SinglePlaceMap from './singlePlaceMap';
 
 export default async function SinglePlacePage(props) {
-  const allUsers = await getUsers();
-  console.log(allUsers);
-
   // getting single place from database
   const singlePlace = await getPlaceById(props.params.placeId);
   // getting all reviews and filter them to a reviews for a single place
   const reviews = await getReviews();
+
   const filteredReviews = reviews.filter(
     (review) => review.placeId === singlePlace.id,
   );
-  const users = allUsers.filter((user) => user.id === filteredReviews.userId);
-  console.log(users);
 
   const cookieStore = cookies();
   const sessionToken = cookieStore.get('sessionToken');
@@ -51,11 +47,10 @@ export default async function SinglePlacePage(props) {
       {filteredReviews.map((review) => {
         return (
           <div key={`review-${review.id}`}>
-            {users.username}
             <h2>{review.title}</h2>
             <p>{review.reviewText}</p>
-
-            {user && <DeleteReview reviews={review} />}
+            <p>created by: {review.userName}</p>
+            <DeleteReview reviews={review} user={user} />
           </div>
         );
       })}

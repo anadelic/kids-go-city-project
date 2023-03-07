@@ -7,7 +7,6 @@ type Props = { searchParams: { returnTo?: string | string[] } };
 
 export default async function RegisterPage(props: Props) {
   const sessionTokenCookie = cookies().get('sessionToken');
-  console.log(sessionTokenCookie);
 
   const session =
     sessionTokenCookie &&

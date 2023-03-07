@@ -8,12 +8,22 @@ type Review = {
   starRating: string;
   userId: number;
   placeId: number;
+  userName: string;
   createdAt: Date;
 };
 
 export const getReviews = cache(async () => {
   const reviews = await sql<Review[]>`
-    SELECT * FROM reviews
+    SELECT
+    id,
+    title,
+    review_text,
+    star_rating,
+    user_id,
+    place_id,
+    user_name
+
+     FROM reviews
   `;
 
   return reviews;
@@ -50,12 +60,13 @@ export const createReview = cache(
     starRating: string,
     userId: number,
     placeId: number,
+    userName: string,
   ) => {
     const [review] = await sql<Review[]>`
       INSERT INTO reviews
-        (title, review_text, star_rating, user_id, place_id)
+        (title, review_text, star_rating, user_id, place_id, user_name)
       VALUES
-        (${title}, ${reviewText}, ${starRating}, ${userId}, ${placeId})
+        (${title}, ${reviewText}, ${starRating}, ${userId}, ${placeId}, ${userName})
       RETURNING *
     `;
     return review;
