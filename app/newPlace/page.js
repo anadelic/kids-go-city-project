@@ -1,5 +1,7 @@
-import Form from '../components/AddAPlaceForm';
+import AddingNewPlace from '../components/AddAPlaceForm';
 
-export default function NewPlacePage() {
-  return <Form />;
+export default function NewPlacd() {
+  const myKey = process.env.MAPBOX_API_KEY;
+
+  return <AddingNewPlace myKey={myKey} />;
 }

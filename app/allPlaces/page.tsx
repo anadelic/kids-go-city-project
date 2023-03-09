@@ -36,14 +36,7 @@ export default async function AllPlacesPage() {
                 <p>{place.placeName}</p>
                 <p>{place.placeAdress}</p>
 
-                <Link href="/">
-                  <Image
-                    src="/images/addtofavorites.png "
-                    alt="Add to favorites icons created by sfjamil - Flaticon"
-                    width="30"
-                    height="30"
-                  />{' '}
-                </Link>
+
               </Link>
             </div>
           );

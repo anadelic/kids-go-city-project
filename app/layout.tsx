@@ -51,7 +51,7 @@ export default async function RootLayout(props: Props) {
             </>
           )}
         </header>
-        {props.children}
+        <main>{props.children}</main>
         <footer>
           Copyright Vienna with little ones
           <Link href="/">Contact us</Link>

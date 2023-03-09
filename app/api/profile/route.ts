@@ -10,7 +10,7 @@ export type ProfileResponseBodyGet =
       user: User;
     };
 
-export async function GET(): Promise<NextResponse> {
+export async function GET(): Promise<NextResponse<ProfileResponseBodyGet>> {
   // this is a protected Route Handler
   // 1. get the session token from the cookie
   const cookieStore = cookies();

@@ -1,7 +1,7 @@
 import { cache } from 'react';
 import { sql } from './connect';
 
-type Review = {
+export type Review = {
   id: number;
   title: string;
   reviewText: string;

@@ -1,7 +1,7 @@
 import { cookies } from 'next/headers';
 import { NextRequest, NextResponse } from 'next/server';
 import { z } from 'zod';
-import { createReview } from '../../../databasa/reviews';
+import { createReview, Review } from '../../../databasa/reviews';
 import { getUserBySessionToken } from '../../../databasa/user';
 
 const reviewType = z.object({
@@ -10,10 +10,20 @@ const reviewType = z.object({
   starRating: z.string(),
   userId: z.number(),
   placeId: z.number(),
-  userName:z.string()
+  userName: z.string(),
 });
 
-export async function POST(request: NextRequest) {
+export type ReviewResponseBodyPost =
+  | {
+      error: string;
+    }
+  | {
+      reviews: Review;
+    };
+
+export async function POST(
+  request: NextRequest,
+): Promise<NextResponse<ReviewResponseBodyPost>> {
   const body = await request.json();
   const result = reviewType.safeParse(body);
   const cookieStore = cookies();

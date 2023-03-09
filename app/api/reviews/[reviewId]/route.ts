@@ -1,12 +1,32 @@
 import { cookies } from 'next/headers';
 import { NextRequest, NextResponse } from 'next/server';
-import { deleteReviewById, getreviewById } from '../../../../databasa/reviews';
+import {
+  deleteReviewById,
+  getreviewById,
+  Review,
+} from '../../../../databasa/reviews';
 import { getUserBySessionToken } from '../../../../databasa/user';
+
+export type ReviewResponseBodyGet =
+  | {
+      error: string;
+    }
+  | {
+      review: Review;
+    };
+
+export type ReviewResponseBodyDelete =
+  | {
+      error: string;
+    }
+  | {
+      review: Review;
+    };
 
 export async function GET(
   request: NextRequest,
   { params }: { params: Record<string, string | string[]> },
-) {
+): Promise<NextResponse<ReviewResponseBodyGet>> {
   const reviewId = Number(params.reviewId);
 
   if (!reviewId) {
@@ -26,7 +46,7 @@ export async function GET(
 export async function DELETE(
   request: NextRequest,
   { params }: { params: Record<string, string | string[]> },
-) {
+): Promise<NextResponse<ReviewResponseBodyDelete>> {
   const cookieStore = cookies();
   const token = cookieStore.get('sessionToken');
 

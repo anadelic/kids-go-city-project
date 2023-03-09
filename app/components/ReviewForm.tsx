@@ -3,7 +3,19 @@
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 
-export default function AddingPost(props) {
+type Props= {
+  user: {
+    id: number,
+    username:string,
+  }
+  singlePlace: {
+    id: number;
+  }
+}
+
+
+
+export default function AddingPost(props: Props) {
   const [title, setTitle] = useState('');
   const [reviewText, setReviewText] = useState('');
   const [starRating, setStarRating] = useState('');

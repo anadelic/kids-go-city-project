@@ -2,7 +2,15 @@
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 
-export default function DeleteReview(props) {
+type Props= {
+  user: { id:number}
+  reviews: {
+    userId:number,
+    id: number,
+  }
+}
+
+export default function DeleteReview(props:Props) {
   const [error, setError] = useState('');
   const router = useRouter();
 

@@ -15,7 +15,7 @@ export default async function SinglePlacePage(props) {
   const reviews = await getReviews();
 
   const filteredReviews = reviews.filter(
-    (review) => review.placeId === singlePlace.id,
+    (review) => review.placeId === singlePlace?.id,
   );
 
   const cookieStore = cookies();
@@ -30,18 +30,19 @@ export default async function SinglePlacePage(props) {
   return (
     <main>
       <Image
-        src={singlePlace.imageUrl}
+        src={singlePlace?.imageUrl}
         alt="Image of a place"
         width="500"
         height="500"
       />
       <SinglePlaceMap places={singlePlace} />
-      <h1>{singlePlace.placeName}</h1>
-      <p>{singlePlace.placeDescription}</p>
-      <p>{singlePlace.placeAdress}</p>
+      <h1>{singlePlace?.placeName}</h1>
+      <p>{singlePlace?.placeDescription}</p>
+      <p>{singlePlace?.placeAdress}</p>
 
-      {user && <p>Leave a review:</p>}
-      {user && <StarRating />}
+      <p>Leave a review:</p>
+
+      <StarRating />
       {user && <AddingPost singlePlace={singlePlace} user={user} />}
       <h2>All reviews:</h2>
       {filteredReviews.map((review) => {
@@ -50,7 +51,7 @@ export default async function SinglePlacePage(props) {
             <h2>{review.title}</h2>
             <p>{review.reviewText}</p>
             <p>created by: {review.userName}</p>
-            <DeleteReview reviews={review} user={user} />
+            {user && <DeleteReview reviews={review} user={user} />}
           </div>
         );
       })}

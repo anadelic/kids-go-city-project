@@ -1,33 +1,45 @@
 'use client';
 
 import { useRouter } from 'next/navigation';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
-export default function AddingPost(props) {
+export default function AddingNewPlace(props) {
   const [placeName, setPlaceName] = useState('');
   const [placeAdress, setPlaceAdress] = useState('');
-  const [imageUrl, setImageUrl] = useState('');
   const [placeDescription, setPlaceDescription] = useState('');
-  const [latCoord, setLatCoord] = useState('');
-  const [longCoord, setLongCoord] = useState('');
   const [errors, setErrors] = useState('');
+  const [apiData, setApiData] = useState([]);
   const router = useRouter();
+
+  // fetching coordinates from mapbox api
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      fetch(
+        `https://api.mapbox.com/geocoding/v5/mapbox.places/${placeName}.json?access_token=${props.myKey}`,
+      )
+        .then((res) => res.json())
+        .then((res) => res.features[1].geometry.coordinates)
+        .then((res) => setApiData(res))
+        .catch(() => console.log('Error'));
+    }, 700);
+    return () => clearTimeout(timer);
+  }, [placeName, props.myKey]);
+  console.log(apiData);
 
   return (
     <form
       onSubmit={async (event) => {
         event.preventDefault();
-        // Making a post request on submit
-        const response = await fetch('/api/reviews/', {
+        const response = await fetch('/api/addNewPlace/', {
           method: 'POST',
           body: JSON.stringify({
-            placeName: '',
-            placeAdress: '',
+            placeName: placeName,
+            placeDescription: placeDescription,
+            placeAdress: placeAdress,
+            latCoord: apiData[1],
+            longCoord: apiData[0],
             imageUrl: '',
-            placeDescription: '',
-            userId: '',
-            latCoord: '',
-            longCoord: '',
+            userId: props.user.id,
           }),
         });
 
@@ -39,7 +51,6 @@ export default function AddingPost(props) {
         }
       }}
     >
-      {/* Input for review Title*/}
       <label>
         Name:
         <input
@@ -47,7 +58,7 @@ export default function AddingPost(props) {
           onChange={(event) => setPlaceName(event.currentTarget.value)}
         />
       </label>
-      {/* Input for review text*/}
+
       <label>
         Description:
         <textarea
@@ -55,23 +66,6 @@ export default function AddingPost(props) {
           rows={3}
           value={placeDescription}
           onChange={(event) => setPlaceDescription(event.currentTarget.value)}
-        />
-      </label>
-
-      <label>
-        Adress:
-        <input
-          value={placeAdress}
-          onChange={(event) => setPlaceAdress(event.currentTarget.value)}
-        />
-      </label>
-
-      <label>
-        Choose an image:
-        <input
-          type="file"
-          value={imageUrl}
-          onChange={(event) => setImageUrl(event.currentTarget.value)}
         />
       </label>
 
