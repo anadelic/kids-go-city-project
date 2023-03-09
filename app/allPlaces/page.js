@@ -35,8 +35,6 @@ export default async function AllPlacesPage() {
                 />
                 <p>{place.placeName}</p>
                 <p>{place.placeAdress}</p>
-
-
               </Link>
             </div>
           );

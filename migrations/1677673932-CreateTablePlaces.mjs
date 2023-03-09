@@ -4,8 +4,8 @@ export async function up(sql) {
     id integer PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
     place_name varchar(100) NOT NULL,
     place_description varchar(1000) NOT NUll,
-    latCoord varchar(100) NOT NULL,
-    longCoord varchar(100) NOT NULL,
+    latCoord decimal NOT NULL,
+    longCoord decimal NOT NULL,
     place_adress varchar(100),
     image_url varchar(130),
     user_id integer REFERENCES users(id)

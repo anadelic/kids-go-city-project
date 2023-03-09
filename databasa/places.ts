@@ -2,14 +2,13 @@ import { cache } from 'react';
 import { sql } from './connect';
 
 export type Places = {
-
   placeName: string;
   placeAdress: string;
   imageUrl: string;
   placeDescription: string;
   userId: number;
-  latCoord: string;
-  longCoord: string;
+  latCoord: number;
+  longCoord: number;
 };
 
 // get all places
@@ -42,8 +41,8 @@ export const createNewPlace = cache(
     imageUrl: string,
     placeDescription: string,
     userId: number,
-    latcoord: string,
-    longcoord: string,
+    latcoord: number,
+    longcoord: number,
   ) => {
     const [review] = await sql<Places[]>`
       INSERT INTO places

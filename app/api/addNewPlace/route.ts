@@ -10,8 +10,8 @@ const placeType = z.object({
   imageUrl: z.string(),
   placeDescription: z.string(),
   userId: z.number(),
-  latCoord: z.string(),
-  longCoord: z.string(),
+  latCoord: z.number(),
+  longCoord: z.number(),
 });
 
 export type PlaceResponseBodyPost =
