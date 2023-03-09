@@ -32,7 +32,6 @@ export default function AddingPost(props: Props) {
           body: JSON.stringify({
             title: title,
             reviewText: reviewText,
-            starRating: starRating,
             userId: props.user.id,
             placeId: props.singlePlace.id,
             userName: props.user.username,

@@ -1,7 +1,7 @@
 import { cookies } from 'next/headers';
 import { NextRequest, NextResponse } from 'next/server';
 import { z } from 'zod';
-import { createNewPlace } from '../../../databasa/places';
+import { createNewPlace, Places } from '../../../databasa/places';
 import { getUserBySessionToken } from '../../../databasa/user';
 
 const placeType = z.object({
@@ -14,7 +14,17 @@ const placeType = z.object({
   longCoord: z.string(),
 });
 
-export async function POST(request: NextRequest) {
+export type PlaceResponseBodyPost =
+  | {
+      error: string;
+    }
+  | {
+      places: Places;
+    };
+
+export async function POST(
+  request: NextRequest,
+): Promise<NextResponse<PlaceResponseBodyPost>> {
   const body = await request.json();
   const result = placeType.safeParse(body);
   const cookieStore = cookies();
@@ -49,6 +59,14 @@ export async function POST(request: NextRequest) {
     result.data.latCoord,
     result.data.longCoord,
   );
+  if (!newPlace) {
+    return NextResponse.json(
+      {
+        error: 'Place not created!',
+      },
+      { status: 500 },
+    );
+  }
 
   return NextResponse.json({ places: newPlace });
 }

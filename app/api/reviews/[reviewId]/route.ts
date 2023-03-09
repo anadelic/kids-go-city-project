@@ -40,6 +40,15 @@ export async function GET(
 
   const singleReview = await getreviewById(reviewId);
 
+  if (!singleReview) {
+    return NextResponse.json(
+      {
+        error: 'Review not found',
+      },
+      { status: 404 },
+    );
+  }
+
   return NextResponse.json({ review: singleReview });
 }
 
@@ -69,6 +78,15 @@ export async function DELETE(
   }
 
   const singleReview = await deleteReviewById(reviewId);
+
+  if (!singleReview) {
+    return NextResponse.json(
+      {
+        error: 'Review not found',
+      },
+      { status: 404 },
+    );
+  }
 
   return NextResponse.json({ review: singleReview });
 }

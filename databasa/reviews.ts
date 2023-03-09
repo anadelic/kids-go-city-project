@@ -2,14 +2,11 @@ import { cache } from 'react';
 import { sql } from './connect';
 
 export type Review = {
-  id: number;
   title: string;
   reviewText: string;
-  starRating: string;
   userId: number;
   placeId: number;
   userName: string;
-  createdAt: Date;
 };
 
 export const getReviews = cache(async () => {
@@ -18,7 +15,6 @@ export const getReviews = cache(async () => {
     id,
     title,
     review_text,
-    star_rating,
     user_id,
     place_id,
     user_name
@@ -57,7 +53,6 @@ export const createReview = cache(
   async (
     title: string,
     reviewText: string,
-    starRating: string,
     userId: number,
     placeId: number,
     userName: string,
@@ -66,7 +61,7 @@ export const createReview = cache(
       INSERT INTO reviews
         (title, review_text, star_rating, user_id, place_id, user_name)
       VALUES
-        (${title}, ${reviewText}, ${starRating}, ${userId}, ${placeId}, ${userName})
+        (${title}, ${reviewText}, ${userId}, ${placeId}, ${userName})
       RETURNING *
     `;
     return review;

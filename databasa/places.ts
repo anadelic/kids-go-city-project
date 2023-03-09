@@ -1,8 +1,8 @@
 import { cache } from 'react';
 import { sql } from './connect';
 
-type Places = {
-  id: number;
+export type Places = {
+
   placeName: string;
   placeAdress: string;
   imageUrl: string;
