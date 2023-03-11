@@ -3,22 +3,20 @@
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 
-type Props= {
+type Props = {
   user: {
-    id: number,
-    username:string,
-  }
+    id: number;
+    username: string;
+  };
   singlePlace: {
     id: number;
-  }
-}
-
-
+  };
+};
 
 export default function AddingPost(props: Props) {
   const [title, setTitle] = useState('');
   const [reviewText, setReviewText] = useState('');
-  const [starRating, setStarRating] = useState('');
+
   const [errors, setErrors] = useState('');
   const router = useRouter();
 
@@ -32,6 +30,7 @@ export default function AddingPost(props: Props) {
           body: JSON.stringify({
             title: title,
             reviewText: reviewText,
+            starRating: '',
             userId: props.user.id,
             placeId: props.singlePlace.id,
             userName: props.user.username,
@@ -50,6 +49,7 @@ export default function AddingPost(props: Props) {
       <label>
         Title:
         <input
+          className="input input-bordered input-sm w-full max-w-xs"
           value={title}
           onChange={(event) => setTitle(event.currentTarget.value)}
         />
@@ -58,8 +58,7 @@ export default function AddingPost(props: Props) {
       <label>
         Review text:
         <textarea
-          cols={30}
-          rows={3}
+          className="textarea textarea-bordered"
           value={reviewText}
           onChange={(event) => setReviewText(event.currentTarget.value)}
         />
@@ -71,6 +70,7 @@ export default function AddingPost(props: Props) {
         onClick={() => {
           router.refresh();
         }}
+        className="btn btn-sm bg-green-500"
       >
         Post
       </button>

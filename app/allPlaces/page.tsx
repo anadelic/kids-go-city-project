@@ -17,10 +17,7 @@ export default async function AllPlacesPage() {
   const places = await getPlaces();
   return (
     <main className={styles.main}>
-      <h1>Search and view our places</h1>
-      <label>
-        Search: <input placeholder="search places" />
-      </label>
+      <h1>Vienna with the little ones</h1>
       <section>
         <Map places={places} />;
         {places.map((place) => {

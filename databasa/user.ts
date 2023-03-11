@@ -2,6 +2,7 @@ import { cache } from 'react';
 import { sql } from './connect';
 
 export type User = {
+  passwordHash: string;
   id: number;
   username: string;
 };

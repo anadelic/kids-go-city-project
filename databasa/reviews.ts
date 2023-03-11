@@ -53,6 +53,7 @@ export const createReview = cache(
   async (
     title: string,
     reviewText: string,
+    starRating: string,
     userId: number,
     placeId: number,
     userName: string,
@@ -61,7 +62,7 @@ export const createReview = cache(
       INSERT INTO reviews
         (title, review_text, star_rating, user_id, place_id, user_name)
       VALUES
-        (${title}, ${reviewText}, ${userId}, ${placeId}, ${userName})
+        (${title}, ${reviewText}, ${starRating}, ${userId}, ${placeId}, ${userName})
       RETURNING *
     `;
     return review;

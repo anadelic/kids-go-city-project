@@ -1,4 +1,5 @@
 import { cookies } from 'next/headers';
+import Link from 'next/link';
 import { getUserBySessionToken } from '../../databasa/user';
 import AddingNewPlace from '../components/AddAPlaceForm';
 
@@ -16,7 +17,11 @@ export default async function NewPlacd() {
 
   return (
     <div>
+      <h1>New Place</h1>
       <AddingNewPlace myKey={myKey} user={user} myCloud={myCloud} />
+      <Link href="/allPlaces" className="link">
+        Go to all Places
+      </Link>
     </div>
   );
 }

@@ -2,6 +2,7 @@ import { cache } from 'react';
 import { sql } from './connect';
 
 export type Places = {
+  id: number;
   placeName: string;
   placeAdress: string;
   imageUrl: string;
@@ -54,3 +55,14 @@ export const createNewPlace = cache(
     return review;
   },
 );
+
+export const deletePlaceById = cache(async (id: number) => {
+  const [place] = await sql<Places[]>`
+    DELETE FROM
+      places
+    WHERE
+      id = ${id}
+    RETURNING *
+  `;
+  return place;
+});

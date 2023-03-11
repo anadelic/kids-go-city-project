@@ -7,6 +7,7 @@ import { getUserBySessionToken } from '../../../databasa/user';
 const reviewType = z.object({
   title: z.string(),
   reviewText: z.string(),
+  starRating: z.string(),
   userId: z.number(),
   placeId: z.number(),
   userName: z.string(),
@@ -51,6 +52,7 @@ export async function POST(
   const newReview = await createReview(
     result.data.title,
     result.data.reviewText,
+    result.data.starRating,
     result.data.userId,
     result.data.placeId,
     result.data.userName,
@@ -59,7 +61,7 @@ export async function POST(
   if (!newReview) {
     return NextResponse.json(
       {
-        error: 'Place not created!',
+        error: 'Review not created!',
       },
       { status: 500 },
     );

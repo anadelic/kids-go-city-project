@@ -70,6 +70,20 @@ export default function AddingNewPlace(props) {
 
   return (
     <div>
+      <form method="post" onChange={handleOnChange} onSubmit={handleOnSubmit}>
+        <div>
+          <label>
+            Choose an image:
+            <input
+              type="file"
+              name="file"
+              className="file-input file-input-bordered file-input-xs w-full max-w-xs"
+            />
+          </label>
+        </div>
+        <button className="btn btn-sm">Upload</button>
+        <p>{uploadData && <p> Your image is uploaded</p>}</p>
+      </form>
       <form
         onSubmit={async (event) => {
           event.preventDefault();
@@ -94,47 +108,45 @@ export default function AddingNewPlace(props) {
           }
         }}
       >
-        <label>
-          Name:
-          <input
-            value={placeName}
-            onChange={(event) => setPlaceName(event.currentTarget.value)}
-          />
-        </label>
+        <div>
+          <label>
+            Name:
+            <input
+              className="input input-bordered input-sm w-full max-w-xs"
+              value={placeName}
+              onChange={(event) => setPlaceName(event.currentTarget.value)}
+            />
+          </label>
 
-        <label>
-          Description:
-          <textarea
-            cols={30}
-            rows={3}
-            value={placeDescription}
-            onChange={(event) => setPlaceDescription(event.currentTarget.value)}
-          />
-        </label>
+          <label>
+            Description:
+            <textarea
+              className="textarea textarea-bordered"
+              value={placeDescription}
+              onChange={(event) =>
+                setPlaceDescription(event.currentTarget.value)
+              }
+            />
+          </label>
 
-        <label>
-          Adress:
-          <input
-            value={placeAdress}
-            onChange={(event) => setPlaceAdress(event.currentTarget.value)}
-          />
-        </label>
+          <label>
+            Adress:
+            <input
+              className="input input-bordered input-sm w-full max-w-xs"
+              value={placeAdress}
+              onChange={(event) => setPlaceAdress(event.currentTarget.value)}
+            />
+          </label>
+        </div>
 
         <button
           onClick={() => {
             router.refresh();
           }}
+          className="btn btn-sm"
         >
           Add a place
         </button>
-      </form>
-      {/* Form for a image */}
-      <form method="post" onChange={handleOnChange} onSubmit={handleOnSubmit}>
-        <label>
-          Choose an image:
-          <input type="file" name="file" />
-        </label>
-        <button>Upload Files</button>
       </form>
     </div>
   );
