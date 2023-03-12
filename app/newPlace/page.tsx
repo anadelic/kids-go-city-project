@@ -3,6 +3,8 @@ import Link from 'next/link';
 import { getUserBySessionToken } from '../../databasa/user';
 import AddingNewPlace from '../components/AddAPlaceForm';
 
+export const dynamic = 'force-dynamic';
+
 export default async function NewPlacd() {
   const myKey = process.env.MAPBOX_API_KEY;
   const myCloud = process.env.PUBLIC_CLOUDNAME;
@@ -19,7 +21,7 @@ export default async function NewPlacd() {
     <div>
       <h1>New Place</h1>
       <AddingNewPlace myKey={myKey} user={user} myCloud={myCloud} />
-      <Link href="/allPlaces" className="link">
+      <Link href="/Home" className="link">
         Go to all Places
       </Link>
     </div>

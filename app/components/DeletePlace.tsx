@@ -31,6 +31,7 @@ export default function DeletePlace(props: Props) {
 
             if (data.error) {
               setError(data.error);
+              console.log(error);
               return;
             }
             router.refresh();

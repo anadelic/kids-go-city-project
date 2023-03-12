@@ -1,3 +1,5 @@
+// import SinglePlaceMap from './singlePlaceMap';
+import dynamic from 'next/dynamic';
 import { cookies } from 'next/headers';
 import Image from 'next/image';
 import { getPlaceById } from '../../../databasa/places';
@@ -6,7 +8,18 @@ import { getUserBySessionToken } from '../../../databasa/user';
 import DeletePlace from '../../components/DeletePlace';
 import DeleteReview from '../../components/DeleteReview';
 import AddingPost from '../../components/ReviewForm';
-import SinglePlaceMap from './singlePlaceMap';
+
+// export const dynamic = 'force-dynamic';
+
+const SinglePlaceMap = dynamic(() => import('./singlePlaceMap'), {
+  ssr: false,
+});
+
+export const metadata = {
+  title: 'Vienna with little ones: A Guide for Parents and Kids',
+  description:
+    "Discover the best family-friendly places in Vienna with our comprehensive guide. From parks and museums to kid-friendly restaurants and activities, we've got you covered.",
+};
 
 export default async function SinglePlacePage(props) {
   // getting single place from database

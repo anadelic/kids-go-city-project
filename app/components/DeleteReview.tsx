@@ -28,6 +28,7 @@ export default function DeleteReview(props: Props) {
 
             if (data.error) {
               setError(data.error);
+              console.log(error);
               return;
             }
             router.refresh();

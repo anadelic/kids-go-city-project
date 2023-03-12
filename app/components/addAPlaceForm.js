@@ -104,6 +104,7 @@ export default function AddingNewPlace(props) {
 
           if ('errors' in data) {
             setErrors(data.errors);
+            console.log(errors);
             return;
           }
         }}

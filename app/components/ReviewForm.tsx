@@ -41,6 +41,7 @@ export default function AddingPost(props: Props) {
 
         if ('errors' in data) {
           setErrors(data.errors);
+          console.log(errors);
           return;
         }
       }}
