@@ -9,6 +9,7 @@ export const places = [
     place_adress: 'MuseumsQuartier Wien',
     image_url:
       'https://res.cloudinary.com/df7205fx8/image/upload/v1678103483/myproject/dschungel_g5nmto.jpg',
+    type: 'indoor',
   },
   {
     id: '2',
@@ -20,6 +21,7 @@ export const places = [
     place_adress: 'Göllnergasse 8, 1030 Wien',
     image_url:
       'https://res.cloudinary.com/df7205fx8/image/upload/v1678103571/myproject/lilarum_uvw209.jpg',
+    type: 'indoor',
   },
 
   {
@@ -32,6 +34,7 @@ export const places = [
     place_adress: 'Lenaugasse 1A, 1080 Wien',
     image_url:
       'https://res.cloudinary.com/df7205fx8/image/upload/v1678104425/myproject/unnamed_2_melmm9.jpg',
+    type: 'indoor',
   },
   {
     id: '4',
@@ -42,6 +45,7 @@ export const places = [
     place_adress: 'Uraniastraße 1, 1010 Wien',
     image_url:
       'https://res.cloudinary.com/df7205fx8/image/upload/v1678103447/myproject/kasperlundpezi_sle5tz.jpg',
+    type: 'indoor',
   },
   {
     id: '5',
@@ -53,6 +57,7 @@ export const places = [
     place_adress: 'Museumsplatz 1, 1070 Wien',
     image_url:
       'https://res.cloudinary.com/df7205fx8/image/upload/v1678102998/myproject/mumok.jpg',
+    type: 'indoor',
   },
   {
     id: '6',
@@ -64,6 +69,7 @@ export const places = [
     place_adress: 'Burgring 7, 1010 Wien',
     image_url:
       'https://res.cloudinary.com/df7205fx8/image/upload/v1678103313/myproject/naturalhistorymuseum_oblwpz.jpg',
+    type: 'indoor',
   },
   {
     id: '7',
@@ -75,6 +81,7 @@ export const places = [
     place_adress: 'Museumsplatz 1, 1070 Wien',
     image_url:
       'https://res.cloudinary.com/df7205fx8/image/upload/v1678102964/myproject/kinderMuseum.jpg',
+    type: 'indoor',
   },
   {
     id: '8',
@@ -86,6 +93,7 @@ export const places = [
     place_adress: 'Mariahilfer Str. 212, 1140 Wien',
     image_url:
       'https://res.cloudinary.com/df7205fx8/image/upload/v1678102992/myproject/technischesMuseum.jpg',
+    type: 'indoor',
   },
   {
     id: '9',
@@ -97,6 +105,7 @@ export const places = [
     place_adress: 'Am Cobenzl 96a, 1190 Wien',
     image_url:
       'https://res.cloudinary.com/df7205fx8/image/upload/v1678102981/myproject/cobenzl.jpg',
+    type: 'outdoor',
   },
   {
     id: '10',
@@ -108,6 +117,7 @@ export const places = [
     place_adress: 'Donauinsel, 1220 Wien',
     image_url:
       'https://res.cloudinary.com/df7205fx8/image/upload/v1678103321/myproject/wasserspielplatz_x6meoo.jpg',
+    type: 'outdoor',
   },
 ];
 
@@ -121,6 +131,7 @@ export async function up(sql) {
       'longcoord',
       'place_adress',
       'image_url',
+      'type',
     )}
   `;
 }

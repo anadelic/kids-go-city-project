@@ -11,6 +11,7 @@ export default function AddingNewPlace(props) {
   const [apiData, setApiData] = useState([]);
   const [imageSrc, setImageSrc] = useState();
   const [uploadData, setUploadData] = useState();
+  const [value, setValue] = useState('indoor');
   const router = useRouter();
 
   // fetching coordinates from mapbox api
@@ -97,6 +98,7 @@ export default function AddingNewPlace(props) {
               userId: props.user.id,
               latCoord: apiData[1],
               longCoord: apiData[0],
+              type: value,
             }),
           });
 
@@ -138,8 +140,16 @@ export default function AddingNewPlace(props) {
               onChange={(event) => setPlaceAdress(event.currentTarget.value)}
             />
           </label>
+          <select
+            value={value}
+            onChange={(e) => {
+              setValue(e.target.value);
+            }}
+          >
+            <option value="indoor">Indoor</option>
+            <option value="outdoor">Outdoor</option>
+          </select>
         </div>
-
         <button
           onClick={() => {
             router.refresh();

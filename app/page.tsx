@@ -34,7 +34,11 @@ export default async function Home() {
           </div>
         </div>
       </div>
-
+      <div className="max-w-md mt-16 ">
+        <h2 className="mb-5 text-5xl font-bold justify-self-center">
+          Discover Vienna
+        </h2>
+      </div>
       <section className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 mt-16">
         <div className="rounded-lg shadow-lg p-4 sm:col-span-2 lg:col-span-3 grid-row span-full justify-self-center ">
           <Map places={places} />

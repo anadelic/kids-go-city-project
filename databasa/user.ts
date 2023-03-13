@@ -2,9 +2,12 @@ import { cache } from 'react';
 import { sql } from './connect';
 
 export type User = {
-  passwordHash: string;
   id: number;
   username: string;
+};
+
+type UserWithPasswordHash = User & {
+  passwordHash: string;
 };
 
 export const getUsers = cache(async () => {
@@ -35,7 +38,7 @@ export const getUserBySessionToken = cache(async (token: string) => {
 
 export const getUserByUsernameWithPasswordHash = cache(
   async (username: string) => {
-    const [user] = await sql<User[]>`
+    const [user] = await sql<UserWithPasswordHash[]>`
     SELECT
       *
     FROM

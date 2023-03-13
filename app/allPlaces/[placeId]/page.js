@@ -2,6 +2,7 @@
 import dynamic from 'next/dynamic';
 import { cookies } from 'next/headers';
 import Image from 'next/image';
+import Link from 'next/link';
 import { getPlaceById } from '../../../databasa/places';
 import { getReviews } from '../../../databasa/reviews';
 import { getUserBySessionToken } from '../../../databasa/user';
@@ -55,7 +56,7 @@ export default async function SinglePlacePage(props) {
 
       {user && <DeletePlace places={singlePlace} user={user} />}
 
-      <p>Leave a review:</p>
+      <Link href="/review">Write a review</Link>
 
       {user && <AddingPost singlePlace={singlePlace} user={user} />}
       <h2>All reviews:</h2>

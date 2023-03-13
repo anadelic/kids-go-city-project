@@ -8,7 +8,8 @@ export async function up(sql) {
     longCoord decimal NOT NULL,
     place_adress varchar(100),
     image_url varchar(130),
-    user_id integer REFERENCES users(id)
+    user_id integer REFERENCES users(id),
+    type varchar (10)
   )`;
 }
 

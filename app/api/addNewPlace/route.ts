@@ -12,6 +12,8 @@ const placeType = z.object({
   userId: z.number(),
   latCoord: z.number(),
   longCoord: z.number(),
+  type: z.string(),
+
 });
 
 export type PlaceResponseBodyPost =
@@ -58,6 +60,7 @@ export async function POST(
     result.data.userId,
     result.data.latCoord,
     result.data.longCoord,
+    result.data.type,
   );
   if (!newPlace) {
     return NextResponse.json(

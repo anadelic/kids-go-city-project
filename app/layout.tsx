@@ -33,11 +33,6 @@ export default async function RootLayout(props: Props) {
                 <Link href="/">
                   <p className="text-xl font-bold text-gray-800 ">Home</p>
                 </Link>
-                <Link href="/">
-                  <p className="ml-6 text-gray-500 hover:text-gray-800">
-                    Places
-                  </p>
-                </Link>
                 <Link href="/newPlace">
                   <p className="ml-6 text-gray-500 hover:text-gray-800">
                     Add a new place
@@ -45,7 +40,12 @@ export default async function RootLayout(props: Props) {
                 </Link>
                 <Link href="/rainyDays">
                   <p className="ml-6 text-gray-500 hover:text-gray-800">
-                    On rainy days
+                    Crafts
+                  </p>
+                </Link>
+                <Link href="/weather">
+                  <p className="ml-6 text-gray-500 hover:text-gray-800">
+                    Weather
                   </p>
                 </Link>
               </div>

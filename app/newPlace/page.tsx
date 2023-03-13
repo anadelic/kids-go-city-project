@@ -21,7 +21,7 @@ export default async function NewPlacd() {
     <div>
       <h1>New Place</h1>
       <AddingNewPlace myKey={myKey} user={user} myCloud={myCloud} />
-      <Link href="/Home" className="link">
+      <Link href="/" className="link">
         Go to all Places
       </Link>
     </div>
