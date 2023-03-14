@@ -10,6 +10,7 @@ export type Places = {
   userId: number;
   latCoord: number;
   longCoord: number;
+  placeType: string;
 };
 
 // get all places from database
@@ -47,13 +48,13 @@ export const createNewPlace = cache(
     userId: number,
     latcoord: number,
     longcoord: number,
-    type: string,
+    placeType: string,
   ) => {
     const [review] = await sql<Places[]>`
       INSERT INTO places
-        (place_name, place_adress, image_url, place_description, user_id, latCoord, longCoord, type)
+        (place_name, place_adress, image_url, place_description, user_id, latCoord, longCoord, place_type)
       VALUES
-        (${placeName}, ${placeAdress}, ${imageUrl}, ${placeDescription}, ${userId}, ${latcoord}, ${longcoord}, ${type})
+        (${placeName}, ${placeAdress}, ${imageUrl}, ${placeDescription}, ${userId}, ${latcoord}, ${longcoord}, ${placeType})
       RETURNING *
     `;
     return review;
@@ -83,8 +84,7 @@ export const getIndoorPlaces = cache(async () => {
     places
 
     WHERE
-
-    type = 'indoor'
+     place_type = 'indoor'
   `;
 
   return places;
@@ -97,11 +97,12 @@ export const getOutdoorPlaces = cache(async () => {
     SELECT
     *
     FROM
+
     places
 
     WHERE
 
-    type = 'outdoor'
+    place_type = 'outdoor'
   `;
 
   return places;

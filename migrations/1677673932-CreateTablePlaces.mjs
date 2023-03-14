@@ -9,7 +9,7 @@ export async function up(sql) {
     place_adress varchar(100),
     image_url varchar(130),
     user_id integer REFERENCES users(id),
-    type varchar (10)
+    place_type varchar (10)
   )`;
 }
 

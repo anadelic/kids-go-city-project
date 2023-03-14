@@ -27,50 +27,26 @@ export default async function RootLayout(props: Props) {
       <head />
       <body>
         <header>
-          <header className="bg-white shadow-lg">
-            <nav className="container flex flex-col items-center justify-between py-4 mx-auto md:flex-row md:items-center md:justify-between">
-              <div className="flex items-center ">
-                <Link href="/">
-                  <p className="text-xl font-bold text-gray-800 ">Home</p>
-                </Link>
-                <Link href="/newPlace">
-                  <p className="ml-6 text-gray-500 hover:text-gray-800">
-                    Add a new place
-                  </p>
-                </Link>
-                <Link href="/rainyDays">
-                  <p className="ml-6 text-gray-500 hover:text-gray-800">
-                    Crafts
-                  </p>
-                </Link>
-                <Link href="/weather">
-                  <p className="ml-6 text-gray-500 hover:text-gray-800">
-                    Weather
-                  </p>
-                </Link>
+          <header>
+            <nav>
+              <div>
+                <Link href="/">Home</Link>
+                <Link href="/newPlace">Add a new place</Link>
+                <Link href="/rainyDays">Crafts</Link>
+                <Link href="/weather">Weather</Link>
               </div>
-              <div className="flex items-center">
+              <div>
                 {user ? (
                   <>
-                    <p className="mr-6 text-gray-800">{user.username}</p>
+                    <p>{user.username}</p>
                     <Link href="/logout" prefetch={false}>
-                      <p className="px-4 py-2 text-white bg-brick rounded-lg hover:bg-orange-600">
-                        Logout
-                      </p>
+                      Logout
                     </Link>
                   </>
                 ) : (
                   <>
-                    <Link href="/signUp">
-                      <p className="mr-6 text-gray-500 hover:text-gray-800">
-                        Sign up
-                      </p>
-                    </Link>
-                    <Link href="/login">
-                      <p className="px-4 py-2 text-white bg-brick rounded-lg hover:bg-blue-600">
-                        Login
-                      </p>
-                    </Link>
+                    <Link href="/signUp">Sign up</Link>
+                    <Link href="/login">Login</Link>
                   </>
                 )}
               </div>

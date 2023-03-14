@@ -11,12 +11,12 @@ export default function Map(props) {
   const position = [48.2042154830387, 16.368015018501982];
 
   return (
-    <div id="map">
+    <div id="map" className="max-w-screen-lg">
       <MapContainer
         center={position}
         zoom={11}
         scrollWheelZoom={true}
-        style={{ height: 500, width: 900 }}
+        style={{ height: 300, width: 300 }}
         // whenCreated={setMap}
         animate={true}
       >

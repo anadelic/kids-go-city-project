@@ -98,7 +98,7 @@ export default function AddingNewPlace(props) {
               userId: props.user.id,
               latCoord: apiData[1],
               longCoord: apiData[0],
-              type: value,
+              placeType: value,
             }),
           });
 

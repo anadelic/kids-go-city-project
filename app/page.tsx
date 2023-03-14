@@ -15,9 +15,9 @@ const Map = dynamic(() => import('./components/Map'), { ssr: false });
 export default async function Home() {
   const places = await getPlaces();
   return (
-    <main className="container mx-auto py-4">
+    <main className="container mx-auto py-4 ">
       <div
-        className="hero min-h-screen"
+        className="hero h-large"
         style={{
           backgroundImage:
             'url("https://res.cloudinary.com/df7205fx8/image/upload/v1678623976/annadelik_a_city_guide_for_families_and_kids_fun_clean_design_m_ca7022e3-c9a0-426f-936b-c8322bbfb22f_h8hnfj.png")',
@@ -34,38 +34,34 @@ export default async function Home() {
           </div>
         </div>
       </div>
-      <div className="max-w-md mt-16 ">
-        <h2 className="mb-5 text-5xl font-bold justify-self-center">
-          Discover Vienna
-        </h2>
+      <div className=" mt-8 flex justify-center items-center ">
+        <h2 className="mb-5 text-5xl font-bold">Discover Vienna</h2>
       </div>
-      <section className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 mt-16">
-        <div className="rounded-lg shadow-lg p-4 sm:col-span-2 lg:col-span-3 grid-row span-full justify-self-center ">
-          <Map places={places} />
-        </div>
-        {places.map((place) => {
-          return (
-            <div
-              key={`product-${place.id}`}
-              className="bg-white rounded-lg shadow-lg p-4 mt-16 w-auto"
-            >
-              <Link href={`/allPlaces/${place.id}`}>
-                <Image
-                  src={place.imageUrl}
-                  alt="image for the place you can vistit"
-                  width="250"
-                  height="250"
-                  className="rounded-lg"
-                />
-                <p className="mt-2 text-lg font-medium text-gray-800">
-                  {place.placeName}
-                </p>
-                <p className="text-sm text-gray-600">{place.placeAdress}</p>
-              </Link>
-            </div>
-          );
-        })}
-      </section>
+      <div className="max-w-sm sm:max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl">
+        <Map places={places} />
+      </div>
+      {places.map((place) => {
+        return (
+          <div
+            key={`product-${place.id}`}
+            className="bg-white rounded-lg shadow-lg p-4 mt-16 w-auto"
+          >
+            <Link href={`/allPlaces/${place.id}`}>
+              <Image
+                src={place.imageUrl}
+                alt="image for the place you can vistit"
+                width="250"
+                height="250"
+                className="rounded-lg"
+              />
+              <p className="mt-2 text-lg font-medium text-gray-800">
+                {place.placeName}
+              </p>
+              <p className="text-sm text-gray-600">{place.placeAdress}</p>
+            </Link>
+          </div>
+        );
+      })}
     </main>
   );
 }

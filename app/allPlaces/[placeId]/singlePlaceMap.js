@@ -17,7 +17,7 @@ export default function SinglePlaceMap(props) {
         center={position}
         zoom={11}
         scrollWheelZoom={true}
-        style={{ height: 500, width: 500 }}
+        style={{ height: 300, width: 300 }}
         // whenCreated={setMap}
         animate={true}
       >

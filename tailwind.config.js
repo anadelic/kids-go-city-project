@@ -18,6 +18,9 @@ module.exports = {
         white: '#ffffff',
         gray: '#808080e2',
       },
+      height: {
+        large: '780px',
+      },
     },
   },
   plugins: [require('daisyui')],
