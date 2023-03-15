@@ -3,6 +3,7 @@ import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import Link from 'next/link';
 import { getPlaces } from '../databasa/places';
+import ShowMoreForMainPage from './components/ButtonShowMore';
 
 export const metadata = {
   title: 'Vienna with little ones: A Guide for Parents and Kids',
@@ -44,30 +45,32 @@ export default async function Home() {
       <div className="max-w-sm sm:max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl">
         <Map places={places} />
       </div>
-      {places.map((place) => {
-        return (
-          <div
-            key={`product-${place.id}`}
-            className="bg-white rounded-lg shadow-lg p-4 mt-16 w-auto"
-          >
-            <Link href={`/allPlaces/${place.id}`}>
-              <Image
-                src={place.imageUrl}
-                alt="image for the place you can vistit"
-                width="250"
-                height="250"
-                className="rounded-lg"
-              />
-              <p className="mt-2 text-lg font-medium text-gray-800 font-poppins">
-                {place.placeName}
-              </p>
-              <p className="text-sm text-gray-600 font-poppins">
-                {place.placeAdress}
-              </p>
-            </Link>
-          </div>
-        );
-      })}
+      <div className="grid grid-cols-1 sm:grid-cols-3">
+        {places.map((place) => {
+          return (
+            <div
+              key={`product-${place.id}`}
+              className="bg-white rounded-lg shadow-lg p-4 mt-16 w-auto"
+            >
+              <Link href={`/allPlaces/${place.id}`}>
+                <Image
+                  src={place.imageUrl}
+                  alt="image for the place you can vistit"
+                  width="250"
+                  height="250"
+                  className="rounded-lg"
+                />
+                <p className="mt-2 text-lg font-medium text-gray-800 font-poppins">
+                  {place.placeName}
+                </p>
+                <p className="text-sm text-gray-600 font-poppins">
+                  {place.placeAdress}
+                </p>
+              </Link>
+            </div>
+          );
+        })}
+      </div>
     </main>
   );
 }

@@ -17,6 +17,7 @@ export type Places = {
 export const getPlaces = cache(async () => {
   const places = await sql<Places[]>`
     SELECT * FROM places
+
   `;
 
   return places;
@@ -93,7 +94,7 @@ export const getIndoorPlaces = cache(async (limit: number, offset: number) => {
 
 // getting outdoor places with WHERE filtering
 
-export const getOutdoorPlaces = cache(async () => {
+export const getOutdoorPlaces = cache(async (limit: number, offset: number) => {
   const places = await sql<Places[]>`
     SELECT
     *
@@ -102,8 +103,9 @@ export const getOutdoorPlaces = cache(async () => {
     places
 
     WHERE
-
     place_type = 'outdoor'
+    Limit ${limit}
+    offset ${offset}
   `;
 
   return places;

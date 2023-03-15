@@ -51,7 +51,6 @@ export default async function RootLayout(props: Props) {
             </div>
           </nav>
         </header>
-
         <main>{props.children}</main>
         <Footer />
       </body>

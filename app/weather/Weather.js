@@ -6,6 +6,7 @@ export default function WeatherCard(props) {
   // seting state for api data
   const [apiData, setApiData] = useState([]);
   const [indoorPlaces, setIndoorPlaces] = useState(props.indoorPlaces);
+  const [outdoorPlaces, setOutdoorPlaces] = useState(props.outdoorPlaces);
 
   const url = `https://api.openweathermap.org/data/2.5/weather?q=Vienna&appid=${props.apiKey}`;
 
@@ -42,9 +43,9 @@ export default function WeatherCard(props) {
         {/* Using conditional operatorIf  to display just outdoor places if temp is more than 10 degrees, otherwise display indoor places */}
         {currentTemp > 10 ? (
           <div className="text-xl py-1 font-poppins mt-16 font-medium">
-            Hey{!props.user ? 'stranger' : props.user.username}! It seems like
+            Hey {!props.user ? 'stranger' : props.user.username}! It seems like
             the weather is nice today! Check out these places:
-            {props.outdoorPlaces.map((place) => {
+            {outdoorPlaces.map((place) => {
               return (
                 <div key={`place-${place.id}`} className="text-xl py-1">
                   <Link
@@ -57,6 +58,23 @@ export default function WeatherCard(props) {
                 </div>
               );
             })}
+            <button
+              className="btn bg-brick font-poppins my-12 "
+              onClick={async () => {
+                const placeCount = outdoorPlaces.length;
+                console.log(placeCount);
+                const response = await fetch(
+                  `/api/outdoorPlaces?limit=2&offset=${placeCount}`,
+                );
+
+                const data = await response.json();
+                console.log(outdoorPlaces);
+
+                setOutdoorPlaces([...outdoorPlaces, ...data.places]);
+              }}
+            >
+              Show more outdoor places
+            </button>
           </div>
         ) : (
           <div className="text-xl py-1 font-poppins mt-16 font-medium">
@@ -81,7 +99,7 @@ export default function WeatherCard(props) {
                 const placeCount = indoorPlaces.length;
 
                 const response = await fetch(
-                  `/api/addNewPlace?limit=2&offset=${placeCount}`,
+                  `/api/indoorPlaces?limit=2&offset=${placeCount}`,
                 );
 
                 const data = await response.json();
@@ -89,7 +107,7 @@ export default function WeatherCard(props) {
                 setIndoorPlaces([...indoorPlaces, ...data.places]);
               }}
             >
-              Show more
+              Show more indoor places
             </button>
           </div>
         )}

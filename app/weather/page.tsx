@@ -5,7 +5,7 @@ import WeatherCard from './Weather';
 
 export default async function WeatherPage() {
   const indoorPlaces = await getIndoorPlaces(2, 0);
-  const outdoorPlaces = await getOutdoorPlaces();
+  const outdoorPlaces = await getOutdoorPlaces(2, 0);
   const apiKey = process.env.REACT_APP_API_KEY;
 
   // 3. get the user profile matching the session

@@ -1,11 +1,7 @@
 import { cookies } from 'next/headers';
 import { NextRequest, NextResponse } from 'next/server';
 import { z } from 'zod';
-import {
-  createNewPlace,
-  getIndoorPlaces,
-  Places,
-} from '../../../databasa/places';
+import { createNewPlace, getPlaces, Places } from '../../../databasa/places';
 import { getUserBySessionToken } from '../../../databasa/user';
 
 const placeType = z.object({
@@ -85,6 +81,8 @@ export async function POST(
   return NextResponse.json({ places: newPlace });
 }
 
+// getting places with limit and offset
+
 export async function GET(
   request: NextRequest,
 ): Promise<NextResponse<PlaceResponseBodyGet>> {
@@ -103,7 +101,7 @@ export async function GET(
     );
   }
 
-  const indoorPlaces = await getIndoorPlaces(limit, offset);
+  const indoorPlaces = await getPlaces(limit, offset);
 
   return NextResponse.json({ places: indoorPlaces });
 }
