@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 export default function WeatherCard(props) {
   // seting state for api data
   const [apiData, setApiData] = useState([]);
+  const [indoorPlaces, setIndoorPlaces] = useState(props.indoorPlaces);
 
   const url = `https://api.openweathermap.org/data/2.5/weather?q=Vienna&appid=${props.apiKey}`;
 
@@ -20,9 +21,10 @@ export default function WeatherCard(props) {
 
   return (
     <main>
+      {/* Getting information about the weather from api response */}
       <section className="flex justify-center items-center my-12">
         <div className="card w-96 bg-base-100 shadow-xl">
-          <div className="card-body bg-second text-white text-xl rounded-lg">
+          <div className="card-body bg-three text-white text-xl rounded-lg font-poppins hover:scale-125 transition duration-700 ease-in-out">
             <h2 className="card-title text-3xl">{apiData.name}</h2>
             <p>{Math.round(apiData.main?.temp - 273)}°C</p>
             <p>Feels like: {Math.round(apiData.main?.feels_like - 273)}°C</p>
@@ -37,14 +39,18 @@ export default function WeatherCard(props) {
         </div>
       </section>
       <section>
+        {/* Using conditional operatorIf  to display just outdoor places if temp is more than 10 degrees, otherwise display indoor places */}
         {currentTemp > 10 ? (
-          <div className="text-xl py-1">
-            Hey! It seems like the weather is nice today! Check out these
-            places:
+          <div className="text-xl py-1 font-poppins mt-16 font-medium">
+            Hey{!props.user ? 'stranger' : props.user.username}! It seems like
+            the weather is nice today! Check out these places:
             {props.outdoorPlaces.map((place) => {
               return (
                 <div key={`place-${place.id}`} className="text-xl py-1">
-                  <Link href={`/allPlaces/${place.id}`}>
+                  <Link
+                    href={`/allPlaces/${place.id}`}
+                    className="link link-hover"
+                  >
                     <p>{place.placeName}</p>
                     <p>{place.placeAdress}</p>
                   </Link>
@@ -53,16 +59,38 @@ export default function WeatherCard(props) {
             })}
           </div>
         ) : (
-          <div className="text-xl py-1">
-            Hey! It seems like it might be cold today! Check out these places:
-            {props.indoorPlaces.map((place) => {
+          <div className="text-xl py-1 font-poppins mt-16 font-medium">
+            Hey {!props.user ? 'stranger' : props.user.username}! It seems like
+            it might be cold today! Check out these places:
+            {indoorPlaces.map((place) => {
               return (
-                <div key={`product-${place.id}`} className="text-xl py-1">
-                  <p>{place.placeName}</p>
-                  <p>{place.placeAdress}</p>
+                <div key={`place-${place.id}`} className="text-xl py-1">
+                  <Link
+                    href={`/allPlaces/${place.id}`}
+                    className="link link-hover"
+                  >
+                    <p>{place.placeName}</p>
+                    <p>{place.placeAdress}</p>
+                  </Link>
                 </div>
               );
             })}
+            <button
+              className="btn bg-brick font-poppins my-12 "
+              onClick={async () => {
+                const placeCount = indoorPlaces.length;
+
+                const response = await fetch(
+                  `/api/addNewPlace?limit=2&offset=${placeCount}`,
+                );
+
+                const data = await response.json();
+
+                setIndoorPlaces([...indoorPlaces, ...data.places]);
+              }}
+            >
+              Show more
+            </button>
           </div>
         )}
       </section>

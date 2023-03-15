@@ -1,7 +1,11 @@
 import { cookies } from 'next/headers';
 import { NextRequest, NextResponse } from 'next/server';
 import { z } from 'zod';
-import { createNewPlace, Places } from '../../../databasa/places';
+import {
+  createNewPlace,
+  getIndoorPlaces,
+  Places,
+} from '../../../databasa/places';
 import { getUserBySessionToken } from '../../../databasa/user';
 
 const placeType = z.object({
@@ -21,6 +25,14 @@ export type PlaceResponseBodyPost =
     }
   | {
       places: Places;
+    };
+
+export type PlaceResponseBodyGet =
+  | {
+      error: string;
+    }
+  | {
+      places: Places[];
     };
 
 export async function POST(
@@ -71,4 +83,27 @@ export async function POST(
   }
 
   return NextResponse.json({ places: newPlace });
+}
+
+export async function GET(
+  request: NextRequest,
+): Promise<NextResponse<PlaceResponseBodyGet>> {
+  // this should be a public api method (unprotected)
+  const { searchParams } = new URL(request.url);
+
+  const limit = Number(searchParams.get('limit'));
+  const offset = Number(searchParams.get('offset'));
+
+  if (!limit || !offset) {
+    return NextResponse.json(
+      {
+        error: 'Limit and Offset need to be passed as params',
+      },
+      { status: 400 },
+    );
+  }
+
+  const indoorPlaces = await getIndoorPlaces(limit, offset);
+
+  return NextResponse.json({ places: indoorPlaces });
 }

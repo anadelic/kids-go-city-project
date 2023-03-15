@@ -23,11 +23,13 @@ export default async function Home() {
             'url("https://res.cloudinary.com/df7205fx8/image/upload/v1678623976/annadelik_a_city_guide_for_families_and_kids_fun_clean_design_m_ca7022e3-c9a0-426f-936b-c8322bbfb22f_h8hnfj.png")',
         }}
       >
-        <div className="hero-overlay bg-opacity-40" />
+        <div className="hero-overlay bg-opacity-40 " />
         <div className="hero-content text-center text-neutral-content">
           <div className="max-w-md">
-            <h1 className="mb-5 text-5xl font-bold">Vienna with little ones</h1>
-            <p className="mb-5">
+            <h1 className="mb-5 text-5xl font-bold font-poppins">
+              Vienna with little ones
+            </h1>
+            <p className="mb-5 font-poppins">
               Welcome to Vienna with little ones <br />
               Feel free to share your favorite places and comment on others!
             </p>
@@ -35,7 +37,9 @@ export default async function Home() {
         </div>
       </div>
       <div className=" mt-8 flex justify-center items-center ">
-        <h2 className="mb-5 text-5xl font-bold">Discover Vienna</h2>
+        <h2 className="mb-5 text-5xl font-bold font-poppins">
+          Discover Vienna
+        </h2>
       </div>
       <div className="max-w-sm sm:max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl">
         <Map places={places} />
@@ -54,10 +58,12 @@ export default async function Home() {
                 height="250"
                 className="rounded-lg"
               />
-              <p className="mt-2 text-lg font-medium text-gray-800">
+              <p className="mt-2 text-lg font-medium text-gray-800 font-poppins">
                 {place.placeName}
               </p>
-              <p className="text-sm text-gray-600">{place.placeAdress}</p>
+              <p className="text-sm text-gray-600 font-poppins">
+                {place.placeAdress}
+              </p>
             </Link>
           </div>
         );

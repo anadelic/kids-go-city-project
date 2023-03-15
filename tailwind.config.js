@@ -13,13 +13,16 @@ module.exports = {
       colors: {
         brick: '#e87948',
         second: '#e3a555',
-        three: '#e00256',
+        three: '#88796e',
         black: '#212121',
         white: '#ffffff',
         gray: '#808080e2',
       },
       height: {
         large: '780px',
+      },
+      fontFamily: {
+        poppins: ['Poppins', 'sans-serif'],
       },
     },
   },

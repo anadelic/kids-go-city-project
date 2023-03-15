@@ -1,5 +1,7 @@
 import { cookies } from 'next/headers';
 import Link from 'next/link';
+import { redirect } from 'next/navigation';
+import { getValidSessionByToken } from '../../databasa/session';
 import { getUserBySessionToken } from '../../databasa/user';
 import AddingNewPlace from '../components/AddAPlaceForm';
 
@@ -10,6 +12,18 @@ export default async function NewPlacd() {
   const myCloud = process.env.PUBLIC_CLOUDNAME;
   const cookieStore = cookies();
   const sessionToken = cookieStore.get('sessionToken');
+
+  const sessionTokenCookie = cookies().get('sessionToken');
+
+  const session =
+    sessionTokenCookie &&
+    (await getValidSessionByToken(sessionTokenCookie.value));
+
+  // for example you may also check if session user is an admin role
+
+  if (!session) {
+    redirect('/login?returnTo=/newPlace');
+  }
 
   // 2. validate that session
   // 3. get the user profile matching the session

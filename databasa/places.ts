@@ -76,15 +76,16 @@ export const deletePlaceById = cache(async (id: number) => {
 
 // getting indoor places with WHERE filtering
 
-export const getIndoorPlaces = cache(async () => {
+export const getIndoorPlaces = cache(async (limit: number, offset: number) => {
   const places = await sql<Places[]>`
     SELECT
     *
     FROM
     places
-
     WHERE
-     place_type = 'indoor'
+    place_type = 'indoor'
+    Limit ${limit}
+    offset ${offset}
   `;
 
   return places;
