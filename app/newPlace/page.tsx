@@ -38,12 +38,18 @@ export default async function NewPlacd() {
     : await getUserBySessionToken(sessionToken.value);
 
   return (
-    <div>
-      <h1>New Place</h1>
-      <AddingNewPlace myKey={myKey} user={user} myCloud={myCloud} />
-      <Link href="/" className="link">
-        Go to all Places
-      </Link>
-    </div>
+    <main className="h-screen">
+      <section className="mt-16 text-xl font-poppins">
+        <h1 className="text-center">Add your favorite place in Vienna</h1>
+      </section>
+      <section className="flex justify-center items-center mt-16 flex-col">
+        <AddingNewPlace myKey={myKey} user={user} myCloud={myCloud} />
+      </section>
+      <section className="text-center mt-16">
+        <Link href="/" className="link">
+          Go to all places
+        </Link>
+      </section>
+    </main>
   );
 }

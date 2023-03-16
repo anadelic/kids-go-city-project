@@ -75,13 +75,15 @@ export default function AddingNewPlace(props) {
         <div>
           <label>
             Choose an image:
+            <br />
             <input
               type="file"
               name="file"
-              className="file-input file-input-bordered file-input-xs w-full max-w-xs"
+              className="file-input file-input-bordered file-input-xs w-full max-w-xs mt-4"
             />
           </label>
         </div>
+        <br />
         <button className="btn btn-sm">Upload</button>
         <p>{uploadData && <p> Your image is uploaded</p>}</p>
       </form>
@@ -112,35 +114,39 @@ export default function AddingNewPlace(props) {
         }}
       >
         <div>
-          <label>
+          <label className="mt-4">
             Name:
+            <br />
             <input
-              className="input input-bordered input-sm w-full max-w-xs"
+              className="input input-bordered input-sm w-full max-w-xs mt-4"
               value={placeName}
               onChange={(event) => setPlaceName(event.currentTarget.value)}
             />
           </label>
-
-          <label>
+          <br />
+          <label className="mt-4">
             Description:
+            <br />
             <textarea
-              className="textarea textarea-bordered"
+              className="textarea textarea-bordered mt-4"
               value={placeDescription}
               onChange={(event) =>
                 setPlaceDescription(event.currentTarget.value)
               }
             />
           </label>
-
-          <label>
+          <br />
+          <label className="mt-4">
             Adress:
+            <br />
             <input
-              className="input input-bordered input-sm w-full max-w-xs"
+              className="input input-bordered input-sm w-full max-w-xs mt-4"
               value={placeAdress}
               onChange={(event) => setPlaceAdress(event.currentTarget.value)}
             />
           </label>
           <select
+            className="mt-4"
             value={value}
             onChange={(e) => {
               setValue(e.target.value);
@@ -154,7 +160,7 @@ export default function AddingNewPlace(props) {
           onClick={() => {
             router.refresh();
           }}
-          className="btn btn-sm"
+          className="btn btn-sm mt-4"
         >
           Add a place
         </button>
