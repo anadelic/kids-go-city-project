@@ -16,7 +16,6 @@ type Props = {
 export default function AddingPost(props: Props) {
   const [title, setTitle] = useState('');
   const [reviewText, setReviewText] = useState('');
-
   const [errors, setErrors] = useState('');
   const router = useRouter();
 
@@ -48,33 +47,34 @@ export default function AddingPost(props: Props) {
     >
       {/* Input for review Title*/}
       <label>
-        Title:
+        Title: <br />
         <input
           className="input input-bordered input-sm w-full max-w-xs"
           value={title}
           onChange={(event) => setTitle(event.currentTarget.value)}
         />
       </label>
+      <br />
       {/* Input for review text*/}
       <label>
-        Review text:
+        Review text: <br />
         <textarea
-          className="textarea textarea-bordered"
+          className="textarea textarea-bordered textarea-lg w-full max-w-xs"
           value={reviewText}
           onChange={(event) => setReviewText(event.currentTarget.value)}
         />
       </label>
-
-      {/* Input for review rating, still have to add*/}
-
-      <button
-        onClick={() => {
-          router.refresh();
-        }}
-        className="btn btn-sm bg-green-500"
-      >
-        Post
-      </button>
+      <br />
+      <div className="flex justify-center items-center">
+        <button
+          onClick={() => {
+            router.refresh();
+          }}
+          className="btn btn-sm bg-green-500"
+        >
+          Post
+        </button>
+      </div>
     </form>
   );
 }

@@ -156,6 +156,7 @@ export default function AddingNewPlace(props) {
             <option value="outdoor">Outdoor</option>
           </select>
         </div>
+
         <button
           onClick={() => {
             router.refresh();

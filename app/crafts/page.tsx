@@ -35,7 +35,7 @@ export default function CraftPage() {
           </div>
         </div>
       </div>
-      <div className="flex justify-center items-cente mt-16">
+      <div className="flex justify-center items-center mt-16">
         <Video />
       </div>
     </main>

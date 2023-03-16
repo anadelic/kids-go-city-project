@@ -42,34 +42,50 @@ export default async function SinglePlacePage(props) {
     : await getUserBySessionToken(sessionToken.value);
 
   return (
-    <main>
-      <Image
-        src={singlePlace?.imageUrl}
-        alt="Image of a place"
-        width="500"
-        height="500"
-      />
-      <SinglePlaceMap places={singlePlace} />
-      <h1>{singlePlace?.placeName}</h1>
-      <p>{singlePlace?.placeDescription}</p>
-      <p>{singlePlace?.placeAdress}</p>
-
-      {user && <DeletePlace places={singlePlace} user={user} />}
-
-      <Link href="/review">Write a review</Link>
-
-      {user && <AddingPost singlePlace={singlePlace} user={user} />}
-      <h2>All reviews:</h2>
-      {filteredReviews.map((review) => {
-        return (
-          <div key={`review-${review.id}`}>
-            <h2>{review.title}</h2>
-            <p>{review.reviewText}</p>
-            <p>created by: {review.userName}</p>
-            {user && <DeleteReview reviews={review} user={user} />}
-          </div>
-        );
-      })}
+    <main className="h-auto">
+      <h1 className="text-center font-poppins font-bold text-4xl mt-16">
+        {singlePlace?.placeName}
+      </h1>
+      <div className="flex justify-center items-center mt-8">
+        <Image
+          className="rounded"
+          src={singlePlace?.imageUrl}
+          alt="Image of a place"
+          width="500"
+          height="500"
+        />
+      </div>
+      <div className="flex justify-center items-center mt-8">
+        <SinglePlaceMap places={singlePlace} className="rounded" />
+      </div>
+      <div className="flex justify-center items-center mt-8">
+        <p className="text-center font-poppins text-lg">
+          {singlePlace?.placeDescription}! <br />
+          {singlePlace?.placeAdress}
+        </p>
+      </div>
+      <div>{user && <DeletePlace places={singlePlace} user={user} />}</div>
+      <div className="flex justify-center items-center mt-8">
+        {user && <AddingPost singlePlace={singlePlace} user={user} />}
+      </div>
+      <h2 className="text-center font-poppins mt-8 text-lg">All reviews:</h2>
+      <div className="flex flex-col justify-center items-center mt-8 mb-16">
+        {filteredReviews.map((review) => {
+          return (
+            <div key={`review-${review.id}`}>
+              <div className="leading-relaxed">
+                <h2 className="text-center">{review.title}</h2>
+                <p className="text-center">{review.reviewText}</p>
+                <p className="text-center">created by: {review.userName}</p>
+                <div className="flex justify-center items-center mt-4 mb-4">
+                  {user && <DeleteReview reviews={review} user={user} />}
+                  <br />
+                </div>
+              </div>
+            </div>
+          );
+        })}
+      </div>
     </main>
   );
 }
