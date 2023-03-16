@@ -7,6 +7,12 @@ import AddingNewPlace from '../components/AddAPlaceForm';
 
 export const dynamic = 'force-dynamic';
 
+export const metadata = {
+  title: 'Be a Part of Vienna with little ones',
+  description:
+    'Add your favorite place in Vienna to our city guide and be a part of our vibrant community. Share your love for your city and help others discover its hidden treasures!',
+};
+
 export default async function NewPlacd() {
   const myKey = process.env.MAPBOX_API_KEY;
   const myCloud = process.env.PUBLIC_CLOUDNAME;

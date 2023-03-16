@@ -3,6 +3,14 @@ import { getIndoorPlaces, getOutdoorPlaces } from '../../databasa/places';
 import { getUserBySessionToken } from '../../databasa/user';
 import WeatherCard from './Weather';
 
+export const dynamic = 'force-dynamic';
+
+export const metadata = {
+  title: 'City Weather Forecast',
+  description:
+    "Stay up-to-date on the weather in Vienna with our comprehensive weather report. Get real-time data on temperature, humidity, wind speed, and more",
+};
+
 export default async function WeatherPage() {
   const indoorPlaces = await getIndoorPlaces(2, 0);
   const outdoorPlaces = await getOutdoorPlaces(2, 0);

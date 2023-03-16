@@ -12,7 +12,7 @@ export default function LoginForm(props: { returnTo?: string | string[] }) {
 
   return (
     <form
-      className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 w-1/2"
+      className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 w-auto"
       onSubmit={async (event) => {
         event.preventDefault();
 
@@ -49,7 +49,7 @@ export default function LoginForm(props: { returnTo?: string | string[] }) {
         <label className="block text-gray-700 font-bold mb-2">
           Username:
           <input
-            className="shadow appearance-none border rounded w-1/4  py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            className="shadow appearance-none border rounded w-3/4  py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             value={username}
             onChange={(event) => setUsername(event.currentTarget.value)}
             placeholder="Please enter your username"
@@ -59,8 +59,9 @@ export default function LoginForm(props: { returnTo?: string | string[] }) {
       <div className="mb-6">
         <label className="block text-gray-700 font-bold mb-2">
           Password:
+          <br />
           <input
-            className="shadow appearance-none border border-red-500 rounded w-1/4 py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
+            className="shadow appearance-none border border-red-500 rounded w-3/4 py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
             value={password}
             onChange={(event) => setPassword(event.currentTarget.value)}
             placeholder="Please enter your password"

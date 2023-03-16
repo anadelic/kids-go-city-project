@@ -1,5 +1,13 @@
 import Video from './Video';
 
+export const dynamic = 'force-dynamic';
+
+export const metadata = {
+  title: 'Crafting with Kids',
+  description:
+    "Foster your child's imagination and creativity with our collection of fun and educational craft projects. Great for all ages and skill levels.",
+};
+
 export default function CraftPage() {
   return (
     <main>

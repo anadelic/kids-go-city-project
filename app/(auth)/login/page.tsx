@@ -3,6 +3,12 @@ import { redirect } from 'next/navigation';
 import { getValidSessionByToken } from '../../../databasa/session';
 import LoginForm from './LoginForm';
 
+export const metadata = {
+  title: 'Login to Your Vienna with little ones Account ',
+  description:
+    'Log in now to access member-only content and features, and stay connected with our vibrant community of users.',
+};
+
 type Props = { searchParams: { returnTo?: string | string[] } };
 
 export default async function RegisterPage(props: Props) {
@@ -18,9 +24,17 @@ export default async function RegisterPage(props: Props) {
     redirect('/');
   }
   return (
-    <main className="flex justify-center items-center h-screen">
-      <h1> Log in</h1>
-      <LoginForm returnTo={props.searchParams.returnTo} />;
+    <main className="h-screen">
+      <section className="mt-16 text-xl font-poppins">
+        <h1 className="text-center">
+          Welcome to Vienna with little ones! <br /> Please sign in to access
+          your account and enjoy our site's full features and benefits.
+          <br /> We're happy to have you here!
+        </h1>
+      </section>
+      <section className="flex justify-center items-center mt-16">
+        <LoginForm returnTo={props.searchParams.returnTo} />;
+      </section>
     </main>
   );
 }
