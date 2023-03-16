@@ -16,7 +16,7 @@ export default function Map(props) {
         center={position}
         zoom={11}
         scrollWheelZoom={true}
-        style={{ height: 300, width: 300 }}
+        style={{ height: 400, width: 800 }}
         // whenCreated={setMap}
         animate={true}
       >

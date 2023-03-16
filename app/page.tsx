@@ -3,7 +3,6 @@ import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import Link from 'next/link';
 import { getPlaces } from '../databasa/places';
-import ShowMoreForMainPage from './components/ButtonShowMore';
 
 export const metadata = {
   title: 'Vienna with little ones: A Guide for Parents and Kids',
@@ -42,7 +41,7 @@ export default async function Home() {
           Discover Vienna
         </h2>
       </div>
-      <div className="max-w-sm sm:max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl">
+      <div className="flex justify-center items-center">
         <Map places={places} />
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-3">

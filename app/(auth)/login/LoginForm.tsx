@@ -11,9 +11,8 @@ export default function LoginForm(props: { returnTo?: string | string[] }) {
   const router = useRouter();
 
   return (
-
-
     <form
+      className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 w-1/2"
       onSubmit={async (event) => {
         event.preventDefault();
 
@@ -46,21 +45,36 @@ export default function LoginForm(props: { returnTo?: string | string[] }) {
       {errors.map((error) => (
         <div key={`error-${error.message}`}>Error: {error.message}</div>
       ))}
-      <label>
-        username:
-        <input
-          value={username}
-          onChange={(event) => setUsername(event.currentTarget.value)}
-        />
-      </label>
-      <label>
-        password:
-        <input
-          value={password}
-          onChange={(event) => setPassword(event.currentTarget.value)}
-        />
-      </label>
-      <button>Login</button>
+      <div className="mb-4">
+        <label className="block text-gray-700 font-bold mb-2">
+          Username:
+          <input
+            className="shadow appearance-none border rounded w-1/4  py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            value={username}
+            onChange={(event) => setUsername(event.currentTarget.value)}
+            placeholder="Please enter your username"
+          />
+        </label>
+      </div>
+      <div className="mb-6">
+        <label className="block text-gray-700 font-bold mb-2">
+          Password:
+          <input
+            className="shadow appearance-none border border-red-500 rounded w-1/4 py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
+            value={password}
+            onChange={(event) => setPassword(event.currentTarget.value)}
+            placeholder="Please enter your password"
+          />
+        </label>
+      </div>
+      <div className="flex items-center justify-between">
+        <button
+          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+          type="button"
+        >
+          Login
+        </button>
+      </div>
     </form>
   );
 }

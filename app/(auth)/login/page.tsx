@@ -9,7 +9,6 @@ export default async function RegisterPage(props: Props) {
   // check if i have a valid session
   const sessionTokenCookie = cookies().get('sessionToken');
 
-
   const session =
     sessionTokenCookie &&
     (await getValidSessionByToken(sessionTokenCookie.value));
@@ -19,7 +18,7 @@ export default async function RegisterPage(props: Props) {
     redirect('/');
   }
   return (
-    <main>
+    <main className="flex justify-center items-center h-screen">
       <h1> Log in</h1>
       <LoginForm returnTo={props.searchParams.returnTo} />;
     </main>

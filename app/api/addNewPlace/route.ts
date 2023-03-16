@@ -83,25 +83,25 @@ export async function POST(
 
 // getting places with limit and offset
 
-export async function GET(
-  request: NextRequest,
-): Promise<NextResponse<PlaceResponseBodyGet>> {
-  // this should be a public api method (unprotected)
-  const { searchParams } = new URL(request.url);
+// export async function GET(
+//   request: NextRequest,
+// ): Promise<NextResponse<PlaceResponseBodyGet>> {
+//   // this should be a public api method (unprotected)
+//   const { searchParams } = new URL(request.url);
 
-  const limit = Number(searchParams.get('limit'));
-  const offset = Number(searchParams.get('offset'));
+//   const limit = Number(searchParams.get('limit'));
+//   const offset = Number(searchParams.get('offset'));
 
-  if (!limit || !offset) {
-    return NextResponse.json(
-      {
-        error: 'Limit and Offset need to be passed as params',
-      },
-      { status: 400 },
-    );
-  }
+//   if (!limit || !offset) {
+//     return NextResponse.json(
+//       {
+//         error: 'Limit and Offset need to be passed as params',
+//       },
+//       { status: 400 },
+//     );
+//   }
 
-  const indoorPlaces = await getPlaces(limit, offset);
+//   const indoorPlaces = await getPlaces(limit, offset);
 
-  return NextResponse.json({ places: indoorPlaces });
-}
+//   return NextResponse.json({ places: indoorPlaces });
+// }
