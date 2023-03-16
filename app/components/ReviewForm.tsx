@@ -43,6 +43,7 @@ export default function AddingPost(props: Props) {
           console.log(errors);
           return;
         }
+        router.refresh();
       }}
     >
       {/* Input for review Title*/}
@@ -66,14 +67,7 @@ export default function AddingPost(props: Props) {
       </label>
       <br />
       <div className="flex justify-center items-center">
-        <button
-          onClick={() => {
-            router.refresh();
-          }}
-          className="btn btn-sm bg-green-500"
-        >
-          Post
-        </button>
+        <button className="btn btn-sm bg-green-500 mt-4">Post</button>
       </div>
     </form>
   );

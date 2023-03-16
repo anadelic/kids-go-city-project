@@ -2,17 +2,17 @@
 import dynamic from 'next/dynamic';
 import { cookies } from 'next/headers';
 import Image from 'next/image';
-import Link from 'next/link';
 import { getPlaceById } from '../../../databasa/places';
 import { getReviews } from '../../../databasa/reviews';
 import { getUserBySessionToken } from '../../../databasa/user';
+import Filter from '../../../utils/filterReviews';
 import DeletePlace from '../../components/DeletePlace';
 import DeleteReview from '../../components/DeleteReview';
 import AddingPost from '../../components/ReviewForm';
 
 // export const dynamic = 'force-dynamic';
 
-const SinglePlaceMap = dynamic(() => import('./singlePlaceMap'), {
+const SinglePlaceMap = dynamic(() => import('./SinglePlaceMap'), {
   ssr: false,
 });
 
@@ -28,9 +28,11 @@ export default async function SinglePlacePage(props) {
 
   // getting all reviews and filter them to a reviews for a single place
   const reviews = await getReviews();
-  const filteredReviews = reviews.filter(
-    (review) => review.placeId === singlePlace?.id,
-  );
+
+  const filteredReviews = Filter(reviews, singlePlace);
+  // const filteredReviews = reviews.filter(
+  //   (review) => review.placeId === singlePlace?.id,
+  // );
 
   const cookieStore = cookies();
   const sessionToken = cookieStore.get('sessionToken');

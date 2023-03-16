@@ -1,7 +1,7 @@
 import { cookies } from 'next/headers';
 import { NextRequest, NextResponse } from 'next/server';
 import { z } from 'zod';
-import { createNewPlace, getPlaces, Places } from '../../../databasa/places';
+import { createNewPlace, Places } from '../../../databasa/places';
 import { getUserBySessionToken } from '../../../databasa/user';
 
 const placeType = z.object({

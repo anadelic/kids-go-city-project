@@ -111,6 +111,7 @@ export default function AddingNewPlace(props) {
             console.log(errors);
             return;
           }
+          router.refresh();
         }}
       >
         <div>
@@ -157,14 +158,7 @@ export default function AddingNewPlace(props) {
           </select>
         </div>
 
-        <button
-          onClick={() => {
-            router.refresh();
-          }}
-          className="btn btn-sm mt-4"
-        >
-          Add a place
-        </button>
+        <button>Add a place</button>
       </form>
     </div>
   );

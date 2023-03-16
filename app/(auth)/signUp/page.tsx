@@ -24,12 +24,12 @@ export default async function RegisterPage(props: Props) {
   }
   return (
     <main className="h-screen">
-      <section className="mt-16 text-xl font-poppins">
+      <div className="mt-16 text-xl font-poppins">
         <h1 className="text-center">Welcome aboard!</h1>
-      </section>
-      <section className="flex justify-center items-center mt-16">
+      </div>
+      <div className="flex justify-center items-center mt-16">
         <RegisterForm returnTo={props.searchParams.returnTo} />;
-      </section>
+      </div>
     </main>
   );
 }
