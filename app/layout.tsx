@@ -27,7 +27,52 @@ export default async function RootLayout(props: Props) {
       <head />
       <body>
         <header>
-          <nav>
+          <nav className="bg-gray-800 py-4 mr-6 ml-6 mb-0">
+            <div className="flex justify-between items-center container mx-auto">
+              <div className="flex space-x-4">
+                <Link href="/">
+                  <p className="text-gray-300 hover:text-second text-large font-poppins transition duration-700 ease-in-out">
+                    Home
+                  </p>
+                </Link>
+                <Link href="/newPlace">
+                  <p className="text-gray-300 hover:text-second text-large font-poppins transition duration-700 ease-in-out">
+                    Add a new place
+                  </p>
+                </Link>
+                <Link href="/crafts">
+                  <p className="text-gray-300 hover:text-second text-large font-poppins transition duration-700 ease-in-out">
+                    Crafts
+                  </p>
+                </Link>
+                <Link href="/weather">
+                  <p className="text-gray-300 hover:text-second text-large font-poppins transition duration-700 ease-in-out">
+                    Weather
+                  </p>
+                </Link>
+              </div>
+              <div className="flex space-x-4">
+                {user ? (
+                  <>
+                    <p className="text-gray-300">{user.username}</p>
+                    <Link href="/logout">
+                      <p className="btn bg-brick border-white">Logout</p>
+                    </Link>
+                  </>
+                ) : (
+                  <>
+                    <Link href="/signUp">
+                      <p className="btn bg-brick border-white">Sign up</p>
+                    </Link>
+                    <Link href="/login">
+                      <p className="btn bg-brick border-white">Login</p>
+                    </Link>
+                  </>
+                )}
+              </div>
+            </div>
+          </nav>
+          {/* <nav>
             <div>
               <Link href="/">Home</Link>
               <Link href="/newPlace">Add a new place</Link>
@@ -49,7 +94,7 @@ export default async function RootLayout(props: Props) {
                 </>
               )}
             </div>
-          </nav>
+          </nav> */}
         </header>
         <main>{props.children}</main>
         <Footer />

@@ -19,7 +19,7 @@ module.exports = {
         gray: '#808080e2',
       },
       height: {
-        large: '780px',
+        large: '760px',
       },
       fontFamily: {
         poppins: ['Poppins', 'sans-serif'],
