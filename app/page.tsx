@@ -16,7 +16,7 @@ export default async function Home() {
   const places = await getPlaces();
   return (
     <main className="container mx-auto py-4 ">
-      <div
+      <header
         className="hero h-large"
         style={{
           backgroundImage:
@@ -35,7 +35,7 @@ export default async function Home() {
             </p>
           </div>
         </div>
-      </div>
+      </header>
       <div className=" mt-8 flex justify-center items-center ">
         <h2 className="mb-5 text-5xl font-bold font-poppins">
           Discover Vienna
