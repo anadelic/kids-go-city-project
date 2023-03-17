@@ -1,8 +1,11 @@
 // import Map from './components/Map';
-import dynamic from 'next/dynamic';
+// import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import Link from 'next/link';
 import { getPlaces } from '../databasa/places';
+import Map from './components/Map';
+
+export const dynamic = 'force-dynamic';
 
 export const metadata = {
   title: 'Vienna with little ones: A Guide for Parents and Kids',
@@ -10,7 +13,7 @@ export const metadata = {
     "Discover the best family-friendly places in Vienna with our comprehensive guide. From parks and museums to kid-friendly restaurants and activities, we've got you covered.",
 };
 
-const Map = dynamic(() => import('./components/Map'), { ssr: false });
+// const Map = dynamic(() => import('./components/Map'), { ssr: false });
 
 export default async function Home() {
   const places = await getPlaces();

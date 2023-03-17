@@ -1,5 +1,5 @@
 // import SinglePlaceMap from './singlePlaceMap';
-import dynamic from 'next/dynamic';
+// import dynamic from 'next/dynamic';
 import { cookies } from 'next/headers';
 import Image from 'next/image';
 import { getPlaceById } from '../../../databasa/places';
@@ -9,12 +9,13 @@ import Filter from '../../../utils/filterReviews';
 import DeletePlace from '../../components/DeletePlace';
 import DeleteReview from '../../components/DeleteReview';
 import AddingPost from '../../components/ReviewForm';
+import SinglePlaceMap from './SinglePlaceMap';
 
 // export const dynamic = 'force-dynamic';
 
-const SinglePlaceMap = dynamic(() => import('./SinglePlaceMap'), {
-  ssr: false,
-});
+// const singlePlaceMap = dynamic(() => import('./SinglePlaceMap'), {
+//  ssr: false,
+// });
 
 export const metadata = {
   title: 'Vienna with little ones: A Guide for Parents and Kids',
