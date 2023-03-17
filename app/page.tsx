@@ -23,7 +23,7 @@ export default async function Home() {
         className="hero h-large"
         style={{
           backgroundImage:
-            'url("https://res.cloudinary.com/df7205fx8/image/upload/v1678623976/annadelik_a_city_guide_for_families_and_kids_fun_clean_design_m_ca7022e3-c9a0-426f-936b-c8322bbfb22f_h8hnfj.png")',
+            'url("https://res.cloudinary.com/df7205fx8/image/upload/v1679061478/annadelik_a_city_guide_for_families_and_kids_fun_clean_design_m_ca7022e3-c9a0-426f-936b-c8322bbfb22f_zx4gpd.png")',
         }}
       >
         <div className="hero-overlay bg-opacity-40 " />
