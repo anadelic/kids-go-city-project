@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { redirect } from 'next/navigation';
 import { getValidSessionByToken } from '../../databasa/session';
 import { getUserBySessionToken } from '../../databasa/user';
-import AddingNewPlace from '../components/AddAPlaceForm';
+import AddingNewPlace from '../components/AddPlaceForm';
 
 export const dynamic = 'force-dynamic';
 
