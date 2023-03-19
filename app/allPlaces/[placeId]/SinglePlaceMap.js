@@ -15,7 +15,7 @@ export default function SinglePlaceMap(props) {
     <div>
       <MapContainer
         center={position}
-        zoom={14}
+        zoom={11}
         scrollWheelZoom={true}
         style={{ height: 200, width: 500 }}
         // whenCreated={setMap}

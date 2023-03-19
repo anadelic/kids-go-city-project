@@ -38,7 +38,7 @@ export default function LoginForm(props: { returnTo?: string | string[] }) {
           return;
         }
 
-        router.replace(`/profile/${data.user.username}`);
+        // router.replace(`/profile/${data.user.username}`);
         router.refresh();
       }}
     >
@@ -61,7 +61,7 @@ export default function LoginForm(props: { returnTo?: string | string[] }) {
           Password:
           <br />
           <input
-            className="shadow appearance-none border border-red-500 rounded w-3/4 py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
+            className="shadow appearance-none border border-grey-500 rounded w-3/4 py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
             value={password}
             onChange={(event) => setPassword(event.currentTarget.value)}
             placeholder="Please enter your password"

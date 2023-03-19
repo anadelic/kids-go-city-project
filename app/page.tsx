@@ -1,11 +1,13 @@
 // import Map from './components/Map';
-// import dynamic from 'next/dynamic';
-import Image from 'next/image';
-import Link from 'next/link';
-import { getPlaces } from '../databasa/places';
-import Map from './components/Map';
+import dynamic from 'next/dynamic';
+import {
+  getIndoorPlacesWithoutOffsetAndLimit,
+  getOutdoorPlacesWithoutOffsetAndLimit,
+  getPlaces,
+} from '../databasa/places';
+import SelectForm from './components/FilteredPlaces';
 
-export const dynamic = 'force-dynamic';
+// export const dynamic = 'force-dynamic';
 
 export const metadata = {
   title: 'Vienna with little ones: A Guide for Parents and Kids',
@@ -13,10 +15,12 @@ export const metadata = {
     "Discover the best family-friendly places in Vienna with our comprehensive guide. From parks and museums to kid-friendly restaurants and activities, we've got you covered.",
 };
 
-// const Map = dynamic(() => import('./components/Map'), { ssr: false });
+const Map = dynamic(() => import('./components/Map'), { ssr: false });
 
 export default async function Home() {
   const places = await getPlaces();
+  const indoorPlaces = await getIndoorPlacesWithoutOffsetAndLimit();
+  const outdoorPlaces = await getOutdoorPlacesWithoutOffsetAndLimit();
   return (
     <main className="container mx-auto py-4 ">
       <header
@@ -47,31 +51,8 @@ export default async function Home() {
       <div className="flex justify-center items-center">
         <Map places={places} />
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-3">
-        {places.map((place) => {
-          return (
-            <div
-              key={`product-${place.id}`}
-              className="bg-white rounded-lg shadow-lg p-4 mt-16 w-auto"
-            >
-              <Link href={`/allPlaces/${place.id}`}>
-                <Image
-                  src={place.imageUrl}
-                  alt="image for the place you can vistit"
-                  width="250"
-                  height="250"
-                  className="rounded-lg"
-                />
-                <p className="mt-2 text-lg font-medium text-gray-800 font-poppins">
-                  {place.placeName}
-                </p>
-                <p className="text-sm text-gray-600 font-poppins">
-                  {place.placeAdress}
-                </p>
-              </Link>
-            </div>
-          );
-        })}
+      <div className="mt-16 font-poppins">
+        <SelectForm outdoor={outdoorPlaces} indoor={indoorPlaces} />
       </div>
     </main>
   );

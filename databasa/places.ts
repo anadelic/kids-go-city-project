@@ -110,3 +110,33 @@ export const getOutdoorPlaces = cache(async (limit: number, offset: number) => {
 
   return places;
 });
+
+// getting indoor places with WHERE filtering without offset and limit
+
+export const getIndoorPlacesWithoutOffsetAndLimit = cache(async () => {
+  const places = await sql<Places[]>`
+    SELECT
+    *
+    FROM
+    places
+    WHERE
+    place_type = 'indoor'
+   `;
+
+  return places;
+});
+
+export const getOutdoorPlacesWithoutOffsetAndLimit = cache(async () => {
+  const places = await sql<Places[]>`
+    SELECT
+    *
+    FROM
+
+    places
+
+    WHERE
+    place_type = 'outdoor'
+     `;
+
+  return places;
+});

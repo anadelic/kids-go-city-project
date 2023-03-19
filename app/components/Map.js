@@ -31,6 +31,7 @@ export default function Map(props) {
           >
             <Popup>
               {place.placeName}
+
               <br />
               {place.placeAdress}
             </Popup>

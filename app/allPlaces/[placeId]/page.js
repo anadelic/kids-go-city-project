@@ -1,5 +1,5 @@
 // import SinglePlaceMap from './singlePlaceMap';
-// import dynamic from 'next/dynamic';
+import dynamic from 'next/dynamic';
 import { cookies } from 'next/headers';
 import Image from 'next/image';
 import { getPlaceById } from '../../../databasa/places';
@@ -9,13 +9,13 @@ import Filter from '../../../utils/filterReviews';
 import DeletePlace from '../../components/DeletePlace';
 import DeleteReview from '../../components/DeleteReview';
 import AddingPost from '../../components/ReviewForm';
-import SinglePlaceMap from './SinglePlaceMap';
+
+// import SinglePlaceMap from './SinglePlaceMap';
 
 // export const dynamic = 'force-dynamic';
-
-// const singlePlaceMap = dynamic(() => import('./SinglePlaceMap'), {
-//  ssr: false,
-// });
+const SinglePlaceMap = dynamic(() => import('./SinglePlaceMap'), {
+  ssr: false,
+});
 
 export const metadata = {
   title: 'Vienna with little ones: A Guide for Parents and Kids',
@@ -31,9 +31,6 @@ export default async function SinglePlacePage(props) {
   const reviews = await getReviews();
 
   const filteredReviews = Filter(reviews, singlePlace);
-  // const filteredReviews = reviews.filter(
-  //   (review) => review.placeId === singlePlace?.id,
-  // );
 
   const cookieStore = cookies();
   const sessionToken = cookieStore.get('sessionToken');
