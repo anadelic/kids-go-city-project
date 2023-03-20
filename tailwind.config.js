@@ -23,6 +23,7 @@ module.exports = {
       },
       fontFamily: {
         poppins: ['Poppins', 'sans-serif'],
+        amatic: ['Amatic SC', 'cursive'],
       },
     },
   },

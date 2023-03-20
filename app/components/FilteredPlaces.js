@@ -75,7 +75,7 @@ export default function SelectForm(props) {
               );
             })}
           </div>
-        )}{' '}
+        )}
       </div>
     </div>
   );

@@ -2,6 +2,8 @@
 import 'leaflet/dist/leaflet.css';
 import 'leaflet-defaulticon-compatibility/dist/leaflet-defaulticon-compatibility.webpack.css'; // Re-uses images from ~leaflet package
 import 'leaflet-defaulticon-compatibility';
+import Image from 'next/image';
+import Link from 'next/link';
 import { Marker, Popup } from 'react-leaflet';
 import { MapContainer } from 'react-leaflet/MapContainer';
 import { TileLayer } from 'react-leaflet/TileLayer';
@@ -11,12 +13,12 @@ export default function Map(props) {
   const position = [48.2042154830387, 16.368015018501982];
 
   return (
-    <div id="map" className="max-w-screen-lg">
+    <div id="map" className="max-w-screen-lg rounded-lg shadow-2xl ">
       <MapContainer
         center={position}
         zoom={11}
         scrollWheelZoom={true}
-        style={{ height: 400, width: 800 }}
+        style={{ height: 600, width: 410 }}
         // whenCreated={setMap}
         animate={true}
       >
@@ -34,6 +36,16 @@ export default function Map(props) {
 
               <br />
               {place.placeAdress}
+              <br />
+              <Link href={`/allPlaces/${place.id}`}>See the place</Link>
+              <br />
+              <Image
+                src={place.imageUrl}
+                alt="image for the place you can vistit"
+                width="250"
+                height="250"
+                className="mask mask-circle"
+              />
             </Popup>
           </Marker>
         ))}

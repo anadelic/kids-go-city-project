@@ -51,7 +51,7 @@ export default function RegisterForm(props: { returnTo?: string | string[] }) {
             className="shadow appearance-none border rounded w-3/4  py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             value={username}
             onChange={(event) => setUsername(event.currentTarget.value)}
-          />
+          />{' '}
         </label>
       </div>
       <div className="mb-6">

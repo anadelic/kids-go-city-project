@@ -33,21 +33,22 @@ export default async function Home() {
         <div className="hero-overlay bg-opacity-40 " />
         <div className="hero-content text-center text-neutral-content">
           <div className="max-w-md">
-            <h1 className="mb-5 text-5xl font-bold font-poppins">
-              Vienna with little ones
+            <h1 className="mb-5 text-5xl font-bold font-amatic">
+              Welcome to Vienna with little ones
             </h1>
-            <p className="mb-5 font-poppins">
-              Welcome to Vienna with little ones <br />
-              Feel free to share your favorite places and comment on others!
+            <p className="mb-5 font-amatic text-3xl font-bold">
+              Feel free to share your favorite places <br /> and comment on
+              others!
             </p>
           </div>
         </div>
       </header>
       <div className=" mt-8 flex justify-center items-center ">
-        <h2 className="mb-5 text-5xl font-bold font-poppins">
+        <h2 className="m-8 text-5xl font-bold font-amatic text-6xl">
           Discover Vienna
         </h2>
       </div>
+
       <div className="flex justify-center items-center">
         <Map places={places} />
       </div>

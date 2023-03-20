@@ -11,11 +11,13 @@ export default function Video() {
       <ReactPlayer
         url="https://dycg50jsua02q.cloudfront.net/craftsvideo.mp4"
         controls={true}
+        width="auto"
       />,
       setVideoTwo(
         <ReactPlayer
           url="https://dycg50jsua02q.cloudfront.net/craftsvideosecond.mp4"
           controls={true}
+          width="auto"
         />,
       ),
     );
@@ -25,7 +27,7 @@ export default function Video() {
     <div>
       <section>
         <h2 className="mb-8 text-lg font-medium text-gray-800 font-poppins">
-          Draw a penguin
+          Draw a funny penguin
         </h2>
         <div>{video} </div>
       </section>

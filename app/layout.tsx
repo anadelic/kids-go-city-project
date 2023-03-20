@@ -25,7 +25,7 @@ export default async function RootLayout(props: Props) {
   return (
     <html lang="en">
       <head />
-      <body className="bg-white">
+      <body className="bg-white text-black">
         <header>
           <nav className="bg-gray-800 py-4 mr-6 ml-6 mb-0">
             <div className="flex justify-between items-center container mx-auto">
@@ -55,7 +55,7 @@ export default async function RootLayout(props: Props) {
                 {user ? (
                   <>
                     <p className="text-gray-300">{user.username}</p>
-                    <Link href="/logout">
+                    <Link href="/logout" prefetch={false}>
                       <p className="btn bg-brick border-white">Logout</p>
                     </Link>
                   </>

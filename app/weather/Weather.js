@@ -59,7 +59,7 @@ export default function WeatherCard(props) {
               );
             })}
             <button
-              className="btn bg-brick font-poppins my-12 "
+              className="btn bg-brick font-poppins my-12 border-white "
               onClick={async () => {
                 const placeCount = outdoorPlaces.length;
                 console.log(placeCount);
@@ -94,7 +94,7 @@ export default function WeatherCard(props) {
               );
             })}
             <button
-              className="btn bg-brick font-poppins my-12 "
+              className="btn bg-brick font-poppins my-12 border-white"
               onClick={async () => {
                 const placeCount = indoorPlaces.length;
 

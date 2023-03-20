@@ -33,7 +33,7 @@ export default async function LoginPage(props: Props) {
         </h1>
       </section>
       <section className="flex justify-center items-center mt-16">
-        <LoginForm returnTo={props.searchParams.returnTo} />;
+        <LoginForm returnTo={props.searchParams.returnTo} />
       </section>
     </main>
   );

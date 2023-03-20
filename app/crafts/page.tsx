@@ -20,22 +20,17 @@ export default function CraftPage() {
         <div className="hero-overlay bg-opacity-60" />
         <div className="hero-content text-center text-neutral-content font-poppins">
           <div className="max-w-md">
-            <h1 className="mb-5 text-3xl font-bold">
+            <h1 className="mb-5 text-5xl font-bold font-amatic">
               Rainy Day Fun: Creative Crafts for Kids
             </h1>
-            <p className="mb-5 text-3xl">
+            <p className="mb-5 text-3xl font-amatic">
               Looking for ways to keep your kids entertained on a rainy day? Our
-              crafts page for kids has got you covered! With easy and fun indoor
-              projects, your kids will have a blast getting creative and making
-              something special. From paper crafts to painting, there's
-              something for every age and interest. So, when the weather takes a
-              turn for the worse, turn to our crafts page for a guaranteed good
-              time!
+              crafts page for kids has got you covered!
             </p>
           </div>
         </div>
       </div>
-      <div className="flex justify-center items-center mt-16">
+      <div className="flex justify-center items-center mt-16 ">
         <Video />
       </div>
     </main>

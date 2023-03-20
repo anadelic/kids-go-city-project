@@ -14,10 +14,11 @@ export default function SinglePlaceMap(props) {
   return (
     <div>
       <MapContainer
+        className="rounded-md shadow-x "
         center={position}
         zoom={11}
         scrollWheelZoom={true}
-        style={{ height: 200, width: 500 }}
+        style={{ height: 350, width: 350 }}
         // whenCreated={setMap}
         animate={true}
       >

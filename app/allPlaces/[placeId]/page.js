@@ -43,22 +43,22 @@ export default async function SinglePlacePage(props) {
 
   return (
     <main className="h-auto">
-      <h1 className="text-center font-poppins font-bold text-4xl mt-16">
+      <h1 className="text-center font-poppins font-bold text-4xl mt-6">
         {singlePlace?.placeName}
       </h1>
-      <div className="flex justify-center items-center mt-8">
+      <div className="flex justify-center items-center mt-6">
         <Image
           className="rounded"
           src={singlePlace?.imageUrl}
           alt="Image of a place"
-          width="500"
-          height="500"
+          width="350"
+          height="350"
         />
       </div>
-      <div className="flex justify-center items-center mt-8">
+      <div className="flex justify-center items-center mt-6">
         <SinglePlaceMap places={singlePlace} className="rounded" />
       </div>
-      <div className="flex justify-center items-center mt-8">
+      <div className="flex justify-center items-center mt-8 px-16">
         <p className="text-center font-poppins text-lg">
           {singlePlace?.placeDescription}! <br />
           {singlePlace?.placeAdress}

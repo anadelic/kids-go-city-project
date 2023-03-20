@@ -8,7 +8,7 @@ export const dynamic = 'force-dynamic';
 export const metadata = {
   title: 'City Weather Forecast',
   description:
-    "Stay up-to-date on the weather in Vienna with our comprehensive weather report. Get real-time data on temperature, humidity, wind speed, and more",
+    'Stay up-to-date on the weather in Vienna with our comprehensive weather report. Get real-time data on temperature, humidity, wind speed, and more',
 };
 
 export default async function WeatherPage() {
@@ -35,7 +35,9 @@ export default async function WeatherPage() {
         <div className="hero-overlay bg-opacity-60" />
         <div className="hero-content text-center text-neutral-content font-poppins">
           <div className="max-w-md">
-            <h1 className="mb-5 text-5xl font-bold">Weather in Vienna</h1>
+            <h1 className="mb-5 text-5xl font-bold font-amatic">
+              Weather in Vienna
+            </h1>
             <p className="mb-5 text-3xl">
               The weather in Vienna is typical continental - there are
               characteristic, clearly defined seasons. Hot summers with an
@@ -47,7 +49,7 @@ export default async function WeatherPage() {
         </div>
       </div>
 
-      <h2 className="text-center text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl font-bold mt-8 font-poppins">
+      <h2 className="text-center text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl font-bold mt-8 font-amatic">
         Check the weather for today
       </h2>
       <section className="text-center items-center mt-8 font-poppins">

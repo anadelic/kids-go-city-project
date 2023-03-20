@@ -84,7 +84,7 @@ export default function AddingNewPlace(props) {
           </label>
         </div>
         <br />
-        <button className="btn btn-sm">Upload</button>
+        <button className="btn btn-sm bg-brick border-white">Upload</button>
         <p>{uploadData && <p> Your image is uploaded</p>}</p>
       </form>
       <form
@@ -114,8 +114,8 @@ export default function AddingNewPlace(props) {
           router.refresh();
         }}
       >
-        <div>
-          <label className="mt-4">
+        <div className="mt-4">
+          <label>
             Name:
             <br />
             <input
@@ -158,7 +158,9 @@ export default function AddingNewPlace(props) {
           </select>
         </div>
 
-        <button>Add a place</button>
+        <button className="btn btn-sm bg-brick border-white mt-4">
+          Add a place
+        </button>
       </form>
     </div>
   );

@@ -28,7 +28,7 @@ export default async function RegisterPage(props: Props) {
         <h1 className="text-center">Welcome aboard!</h1>
       </div>
       <div className="flex justify-center items-center mt-16">
-        <RegisterForm returnTo={props.searchParams.returnTo} />;
+        <RegisterForm returnTo={props.searchParams.returnTo} />
       </div>
     </main>
   );
