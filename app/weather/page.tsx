@@ -34,7 +34,7 @@ export default async function WeatherPage() {
       >
         <div className="hero-overlay bg-opacity-60" />
         <div className="hero-content text-center text-neutral-content font-poppins">
-          <div className="max-w-md">
+          <div className="max-w-md text-white">
             <h1 className="mb-5 text-5xl font-bold font-amatic">
               Weather in Vienna
             </h1>

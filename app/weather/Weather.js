@@ -94,7 +94,7 @@ export default function WeatherCard(props) {
               );
             })}
             <button
-              className="btn bg-brick font-poppins my-12 border-white"
+              className="btn bg-brick font-poppins my-12 border-white text-white"
               onClick={async () => {
                 const placeCount = indoorPlaces.length;
 

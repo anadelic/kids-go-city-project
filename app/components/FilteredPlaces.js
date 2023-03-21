@@ -14,7 +14,7 @@ export default function SelectForm(props) {
           onChange={(e) => {
             setPlaceType(e.target.value);
           }}
-          className="select select-bordered w-full max-w-xs"
+          className="select select-bordered w-full max-w-xs bg-white"
         >
           <option value="indoor">Indoor</option>
           <option value="outdoor">Outdoor</option>
@@ -22,7 +22,7 @@ export default function SelectForm(props) {
       </div>
       <div className="flex justify-center items-center">
         {placeType === 'outdoor' ? (
-          <div>
+          <div className="grid grid-cols-1 sm:grid-cols-3">
             {props.outdoor.map((place) => {
               return (
                 <div
@@ -37,12 +37,14 @@ export default function SelectForm(props) {
                       height="250"
                       className="rounded-lg"
                     />
-                    <p className="mt-2 text-lg font-medium text-gray-800 font-poppins">
-                      {place.placeName}
-                    </p>
-                    <p className="text-sm text-gray-600 font-poppins">
-                      {place.placeAdress}
-                    </p>
+                    <div>
+                      <p className="mt-2 text-lg font-medium text-gray-800 font-poppins">
+                        {place.placeName}
+                      </p>
+                      <p className="text-sm text-gray-600 font-poppins">
+                        {place.placeAdress}
+                      </p>
+                    </div>
                   </Link>
                 </div>
               );

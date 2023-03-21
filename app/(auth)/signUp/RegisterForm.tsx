@@ -48,7 +48,7 @@ export default function RegisterForm(props: { returnTo?: string | string[] }) {
         <label className="block text-gray-700 font-bold mb-2">
           username:
           <input
-            className="shadow appearance-none border rounded w-3/4  py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            className="shadow appearance-none border rounded w-3/4  py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline bg-white"
             value={username}
             onChange={(event) => setUsername(event.currentTarget.value)}
           />{' '}
@@ -58,7 +58,7 @@ export default function RegisterForm(props: { returnTo?: string | string[] }) {
         <label className="block text-gray-700 font-bold mb-2">
           password:
           <input
-            className="shadow appearance-none border border-grey-500 rounded w-3/4 py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
+            className="shadow appearance-none border border-grey-500 rounded w-3/4 py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline bg-white"
             value={password}
             onChange={(event) => setPassword(event.currentTarget.value)}
           />

@@ -26,46 +26,52 @@ export default async function RootLayout(props: Props) {
     <html lang="en">
       <head />
       <body className="bg-white text-black">
-        <header>
+        <header className="">
           <nav className="bg-gray-800 py-4 mr-6 ml-6 mb-0">
-            <div className="flex justify-between items-center container mx-auto">
-              <div className="flex space-x-4">
+            <div className="flex flex-inline justify-between">
+              <div className="flex flex-shrink-0 mr-6 flex-col md:flex-row ">
                 <Link href="/">
-                  <p className="text-gray-300 hover:text-second text-large font-poppins transition duration-700 ease-in-out">
+                  <p className="text-gray-300 hover:text-second text-large font-poppins transition duration-700 ease-in-out px-2">
                     Home
                   </p>
                 </Link>
                 <Link href="/newPlace">
-                  <p className="text-gray-300 hover:text-second text-large font-poppins transition duration-700 ease-in-out">
+                  <p className="text-gray-300 hover:text-second text-large font-poppins transition duration-700 ease-in-out px-2">
                     Add a new place
                   </p>
                 </Link>
                 <Link href="/crafts">
-                  <p className="text-gray-300 hover:text-second text-large font-poppins transition duration-700 ease-in-out">
+                  <p className="text-gray-300 hover:text-second text-large font-poppins transition duration-700 ease-in-out px-2">
                     Crafts
                   </p>
                 </Link>
                 <Link href="/weather">
-                  <p className="text-gray-300 hover:text-second text-large font-poppins transition duration-700 ease-in-out">
+                  <p className="text-gray-300 hover:text-second text-large font-poppins transition duration-700 ease-in-out px-2">
                     Weather
                   </p>
                 </Link>
               </div>
-              <div className="flex space-x-4">
+              <div className="flex space-x-4 ">
                 {user ? (
                   <>
                     <p className="text-gray-300">{user.username}</p>
                     <Link href="/logout" prefetch={false}>
-                      <p className="btn bg-brick border-white">Logout</p>
+                      <p className="btn bg-brick border-white text-white">
+                        Logout
+                      </p>
                     </Link>
                   </>
                 ) : (
                   <>
                     <Link href="/signUp">
-                      <p className="btn bg-brick border-white">Sign up</p>
+                      <p className="btn bg-brick border-white text-white">
+                        Sign up
+                      </p>
                     </Link>
                     <Link href="/login">
-                      <p className="btn bg-brick border-white">Login</p>
+                      <p className="btn bg-brick border-white text-white">
+                        Login
+                      </p>
                     </Link>
                   </>
                 )}

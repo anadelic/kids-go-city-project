@@ -7,6 +7,7 @@ import Link from 'next/link';
 import { Marker, Popup } from 'react-leaflet';
 import { MapContainer } from 'react-leaflet/MapContainer';
 import { TileLayer } from 'react-leaflet/TileLayer';
+import styles from './map.module.scss';
 
 export default function Map(props) {
   // centering the map
@@ -18,7 +19,7 @@ export default function Map(props) {
         center={position}
         zoom={11}
         scrollWheelZoom={true}
-        style={{ height: 600, width: 410 }}
+        className={styles.map}
         // whenCreated={setMap}
         animate={true}
       >

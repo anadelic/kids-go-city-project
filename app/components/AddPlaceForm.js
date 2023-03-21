@@ -79,12 +79,14 @@ export default function AddingNewPlace(props) {
             <input
               type="file"
               name="file"
-              className="file-input file-input-bordered file-input-xs w-full max-w-xs mt-4"
+              className="file-input file-input-bordered file-input-xs w-full max-w-xs mt-4 bg-white"
             />
           </label>
         </div>
         <br />
-        <button className="btn btn-sm bg-brick border-white">Upload</button>
+        <button className="btn btn-sm bg-brick border-white text-white">
+          Upload
+        </button>
         <p>{uploadData && <p> Your image is uploaded</p>}</p>
       </form>
       <form
@@ -119,7 +121,7 @@ export default function AddingNewPlace(props) {
             Name:
             <br />
             <input
-              className="input input-bordered input-sm w-full max-w-xs mt-4"
+              className="input input-bordered input-sm w-full max-w-xs mt-4 bg-white"
               value={placeName}
               onChange={(event) => setPlaceName(event.currentTarget.value)}
             />
@@ -129,7 +131,7 @@ export default function AddingNewPlace(props) {
             Description:
             <br />
             <textarea
-              className="textarea textarea-bordered mt-4"
+              className="textarea textarea-bordered mt-4 bg-white"
               value={placeDescription}
               onChange={(event) =>
                 setPlaceDescription(event.currentTarget.value)
@@ -137,17 +139,19 @@ export default function AddingNewPlace(props) {
             />
           </label>
           <br />
+
           <label className="mt-4">
             Adress:
             <br />
             <input
-              className="input input-bordered input-sm w-full max-w-xs mt-4"
+              className="input input-bordered input-sm w-full max-w-xs mt-4 bg-white"
               value={placeAdress}
               onChange={(event) => setPlaceAdress(event.currentTarget.value)}
             />
           </label>
+
           <select
-            className="mt-4"
+            className="mt-4 bg-white"
             value={value}
             onChange={(e) => {
               setValue(e.target.value);
@@ -158,7 +162,7 @@ export default function AddingNewPlace(props) {
           </select>
         </div>
 
-        <button className="btn btn-sm bg-brick border-white mt-4">
+        <button className="btn btn-sm bg-brick border-white mt-4 text-white">
           Add a place
         </button>
       </form>

@@ -22,7 +22,7 @@ export default async function Home() {
   const indoorPlaces = await getIndoorPlacesWithoutOffsetAndLimit();
   const outdoorPlaces = await getOutdoorPlacesWithoutOffsetAndLimit();
   return (
-    <main className="container mx-auto py-4 ">
+    <main className="container mx-auto py-4  w-full">
       <header
         className="hero h-large"
         style={{
@@ -32,7 +32,7 @@ export default async function Home() {
       >
         <div className="hero-overlay bg-opacity-40 " />
         <div className="hero-content text-center text-neutral-content">
-          <div className="max-w-md">
+          <div className="max-w-md text-white">
             <h1 className="mb-5 text-5xl font-bold font-amatic">
               Welcome to Vienna with little ones
             </h1>
