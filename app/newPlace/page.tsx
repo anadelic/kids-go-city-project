@@ -11,6 +11,9 @@ export const metadata = {
   title: 'Be a Part of Vienna with little ones',
   description:
     'Add your favorite place in Vienna to our city guide and be a part of our vibrant community. Share your love for your city and help others discover its hidden treasures!',
+  icons: {
+    shortcut: '/icon.svg',
+  },
 };
 
 export default async function NewPlacd() {

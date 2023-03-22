@@ -50,7 +50,7 @@ export default function AddingPost(props: Props) {
       <label>
         Title: <br />
         <input
-          className="input input-bordered input-sm w-full max-w-xs"
+          className="input input-bordered input-sm w-full max-w-xs bg-white"
           value={title}
           onChange={(event) => setTitle(event.currentTarget.value)}
         />
@@ -60,14 +60,16 @@ export default function AddingPost(props: Props) {
       <label>
         Review text: <br />
         <textarea
-          className="textarea textarea-bordered textarea-lg w-full max-w-xs"
+          className="textarea textarea-bordered textarea-lg w-full max-w-xs bg-white"
           value={reviewText}
           onChange={(event) => setReviewText(event.currentTarget.value)}
         />
       </label>
       <br />
       <div className="flex justify-center items-center">
-        <button className="btn btn-sm bg-green-500 mt-4">Post</button>
+        <button className="btn btn-sm bg-green-500 mt-4 text-white border-white">
+          Post
+        </button>
       </div>
     </form>
   );

@@ -30,22 +30,22 @@ export default async function RootLayout(props: Props) {
           <nav className="bg-gray-800 py-4 mr-6 ml-6 mb-0">
             <div className="flex flex-inline justify-between">
               <div className="flex flex-shrink-0 mr-6 flex-col md:flex-row ">
-                <Link href="/">
+                <Link tabIndex={0} href="/">
                   <p className="text-gray-300 hover:text-second text-large font-poppins transition duration-700 ease-in-out px-2">
                     Home
                   </p>
                 </Link>
-                <Link href="/newPlace">
+                <Link tabIndex={0} href="/newPlace">
                   <p className="text-gray-300 hover:text-second text-large font-poppins transition duration-700 ease-in-out px-2">
                     Add a new place
                   </p>
                 </Link>
-                <Link href="/crafts">
+                <Link tabIndex={0} href="/crafts">
                   <p className="text-gray-300 hover:text-second text-large font-poppins transition duration-700 ease-in-out px-2">
                     Crafts
                   </p>
                 </Link>
-                <Link href="/weather">
+                <Link tabIndex={0} href="/weather">
                   <p className="text-gray-300 hover:text-second text-large font-poppins transition duration-700 ease-in-out px-2">
                     Weather
                   </p>
@@ -55,7 +55,7 @@ export default async function RootLayout(props: Props) {
                 {user ? (
                   <>
                     <p className="text-gray-300">{user.username}</p>
-                    <Link href="/logout" prefetch={false}>
+                    <Link tabIndex={0} href="/logout" prefetch={false}>
                       <p className="btn bg-brick border-white text-white">
                         Logout
                       </p>
@@ -63,12 +63,12 @@ export default async function RootLayout(props: Props) {
                   </>
                 ) : (
                   <>
-                    <Link href="/signUp">
+                    <Link tabIndex={0} href="/signUp">
                       <p className="btn bg-brick border-white text-white">
                         Sign up
                       </p>
                     </Link>
-                    <Link href="/login">
+                    <Link tabIndex={0} href="/login">
                       <p className="btn bg-brick border-white text-white">
                         Login
                       </p>

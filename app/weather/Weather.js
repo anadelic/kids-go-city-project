@@ -49,6 +49,7 @@ export default function WeatherCard(props) {
               return (
                 <div key={`place-${place.id}`} className="text-xl py-1">
                   <Link
+                    tabIndex={0}
                     href={`/allPlaces/${place.id}`}
                     className="link link-hover"
                   >
@@ -84,6 +85,7 @@ export default function WeatherCard(props) {
               return (
                 <div key={`place-${place.id}`} className="text-xl py-1">
                   <Link
+                    tabIndex={0}
                     href={`/allPlaces/${place.id}`}
                     className="link link-hover"
                   >

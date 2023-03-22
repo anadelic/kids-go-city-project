@@ -7,6 +7,9 @@ export const metadata = {
   title: 'Login to Your Vienna with little ones Account ',
   description:
     'Log in now to access member-only content and features, and stay connected with our vibrant community of users.',
+  icons: {
+    shortcut: '/icon.svg',
+  },
 };
 
 type Props = { searchParams: { returnTo?: string | string[] } };

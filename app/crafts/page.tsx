@@ -6,6 +6,9 @@ export const metadata = {
   title: 'Crafting with Kids',
   description:
     "Foster your child's imagination and creativity with our collection of fun and educational craft projects. Great for all ages and skill levels.",
+    icons: {
+      shortcut: '/icon.svg',
+    },
 };
 
 export default function CraftPage() {

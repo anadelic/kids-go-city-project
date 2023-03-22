@@ -7,6 +7,9 @@ export const metadata = {
   title: 'Sign Up for Free',
   description:
     "Sign up for Vienna with little ones today and gain access to our community of users, resources, and tools. Best of all, it's completely free!",
+  icons: {
+    shortcut: '/icon.svg',
+  },
 };
 
 type Props = { searchParams: { returnTo?: string | string[] } };

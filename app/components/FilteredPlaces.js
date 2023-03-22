@@ -10,6 +10,7 @@ export default function SelectForm(props) {
     <div>
       <div className="flex justify-center items-center">
         <select
+          tabIndex={0}
           value={placeType}
           onChange={(e) => {
             setPlaceType(e.target.value);
@@ -29,7 +30,7 @@ export default function SelectForm(props) {
                   key={`product-${place.id}`}
                   className="bg-white rounded-lg shadow-lg p-3 m-10 w-auto"
                 >
-                  <Link href={`/allPlaces/${place.id}`}>
+                  <Link tabIndex={0} href={`/allPlaces/${place.id}`}>
                     <Image
                       src={place.imageUrl}
                       alt="image for the place you can vistit"
@@ -58,7 +59,7 @@ export default function SelectForm(props) {
                   key={`product-${place.id}`}
                   className="bg-white rounded-lg shadow-lg p-4 mt-16 w-auto"
                 >
-                  <Link href={`/allPlaces/${place.id}`}>
+                  <Link tabIndex={0} href={`/allPlaces/${place.id}`}>
                     <Image
                       src={place.imageUrl}
                       alt="image for the place you can vistit"

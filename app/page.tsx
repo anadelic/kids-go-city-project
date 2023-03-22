@@ -13,6 +13,9 @@ export const metadata = {
   title: 'Vienna with little ones: A Guide for Parents and Kids',
   description:
     "Discover the best family-friendly places in Vienna with our comprehensive guide. From parks and museums to kid-friendly restaurants and activities, we've got you covered.",
+  icons: {
+    shortcut: '/icon.svg',
+  },
 };
 
 const Map = dynamic(() => import('./components/Map'), { ssr: false });

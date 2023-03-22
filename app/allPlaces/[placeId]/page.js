@@ -21,6 +21,9 @@ export const metadata = {
   title: 'Vienna with little ones: A Guide for Parents and Kids',
   description:
     "Discover the best family-friendly places in Vienna with our comprehensive guide. From parks and museums to kid-friendly restaurants and activities, we've got you covered.",
+  icons: {
+    shortcut: '/icon.svg',
+  },
 };
 
 export default async function SinglePlacePage(props) {
@@ -69,7 +72,12 @@ export default async function SinglePlacePage(props) {
         {user && <AddingPost singlePlace={singlePlace} user={user} />}
       </div>
       <h2 className="text-center font-poppins mt-8 text-lg">All reviews:</h2>
+
       <div className="flex flex-col justify-center items-center mt-8 mb-16">
+        {!user && <p>Please login if you would like to leave a review.</p>}
+        {filteredReviews.length === 0 && (
+          <p>There are still no reviews for this locations.</p>
+        )}
         {filteredReviews.map((review) => {
           return (
             <div key={`review-${review.id}`}>

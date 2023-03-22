@@ -24,7 +24,7 @@ export default function Video() {
   }, []);
 
   return (
-    <div>
+    <main>
       <section>
         <h2 className="mb-8 text-lg font-medium text-gray-800 font-poppins">
           Draw a funny penguin
@@ -37,6 +37,6 @@ export default function Video() {
         </h2>
         <div>{videoTwo}</div>
       </section>
-    </div>
+    </main>
   );
 }

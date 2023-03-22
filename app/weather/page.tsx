@@ -9,6 +9,9 @@ export const metadata = {
   title: 'City Weather Forecast',
   description:
     'Stay up-to-date on the weather in Vienna with our comprehensive weather report. Get real-time data on temperature, humidity, wind speed, and more',
+    icons: {
+      shortcut: '/icon.svg',
+    },
 };
 
 export default async function WeatherPage() {
