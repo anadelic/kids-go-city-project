@@ -11,9 +11,9 @@ jobs:
       PGDATABASE: kids_go_city_project
       PGUSERNAME: kids_go_city_project
       PGPASSWORD: kids_go_city_project
-      ${{ secrets.PUBLIC_CLOUDNAME }}
-      ${{ secrets.MAPBOX_API_KEY }}
-      ${{ secrets.REACT_APP_API_KEY }}
+      PUBLIC_CLOUDNAME: ${{ secrets.PUBLIC_CLOUDNAME }}
+     MAPBOX_API_KEY: ${{ secrets.MAPBOX_API_KEY }}
+     REACT_APP_API_KEY: ${{ secrets.REACT_APP_API_KEY }}
 
     steps:
       - name: Start preinstalled PostgreSQL on Ubuntu
