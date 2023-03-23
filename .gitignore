@@ -40,3 +40,6 @@ yarn-error.log*
 /playwright-report/
 /playwright/.cache/
 playwright/test-results/
+
+public/sw.js
+public/workbox-*.js
