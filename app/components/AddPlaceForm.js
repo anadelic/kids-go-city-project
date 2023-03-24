@@ -1,5 +1,6 @@
 'use client';
 
+import { AddressAutofill } from '@mapbox/search-js-react';
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
@@ -94,6 +95,9 @@ export default function AddingNewPlace(props) {
           event.preventDefault();
           const response = await fetch('/api/addNewPlace/', {
             method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
             body: JSON.stringify({
               placeName: placeName,
               placeAdress: placeAdress,
@@ -111,8 +115,10 @@ export default function AddingNewPlace(props) {
           if ('errors' in data) {
             setErrors(data.errors);
             console.log(errors);
+
             return;
           }
+
           router.refresh();
         }}
       >
@@ -143,11 +149,14 @@ export default function AddingNewPlace(props) {
           <label className="mt-4">
             Adress:
             <br />
-            <input
-              className="input input-bordered input-sm w-full max-w-xs mt-4 bg-white"
-              value={placeAdress}
-              onChange={(event) => setPlaceAdress(event.currentTarget.value)}
-            />
+            <AddressAutofill accessToken="pk.eyJ1IjoibWFrYS1tZWwiLCJhIjoiY2xlZnJ3aHQxMHR3aDN2bWo0ZGNuaXpydiJ9.zDK9r8D3casdEKHenAnYJg">
+              <input
+                className="input input-bordered input-sm w-full max-w-xs mt-4 bg-white"
+                value={placeAdress}
+                onChange={(event) => setPlaceAdress(event.currentTarget.value)}
+                autoComplete="address-line1"
+              />{' '}
+            </AddressAutofill>
           </label>
 
           <select
