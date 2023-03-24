@@ -25,13 +25,13 @@ export default function Video() {
 
   return (
     <main>
-      <section>
+      <section className="flex justify-center items-center flex-col">
         <h2 className="mb-8 text-lg font-medium text-gray-800 font-poppins">
           Draw a funny penguin
         </h2>
         <div>{video} </div>
       </section>
-      <section className="mt-16 mb-16">
+      <section className="mt-16 mb-16 flex justify-center items-center flex-col">
         <h2 className="mb-8 text-lg font-medium text-gray-800 font-poppins">
           Draw a flower bouquet
         </h2>

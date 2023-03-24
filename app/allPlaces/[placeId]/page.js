@@ -67,7 +67,9 @@ export default async function SinglePlacePage(props) {
           {singlePlace?.placeAdress}
         </p>
       </div>
-      <div>{user && <DeletePlace places={singlePlace} user={user} />}</div>
+      <div className="flex justify-center items-center mt-8">
+        {user && <DeletePlace places={singlePlace} user={user} />}
+      </div>
       <div className="flex justify-center items-center mt-8">
         {user && <AddingPost singlePlace={singlePlace} user={user} />}
       </div>

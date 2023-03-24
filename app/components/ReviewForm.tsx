@@ -26,6 +26,9 @@ export default function AddingPost(props: Props) {
         // Making a post request on submit
         const response = await fetch('/api/reviews/', {
           method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
           body: JSON.stringify({
             title: title,
             reviewText: reviewText,

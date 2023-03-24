@@ -48,7 +48,7 @@ export default async function NewPlacd() {
       <section className="flex justify-center items-center mt-16 flex-col">
         <AddingNewPlace myKey={myKey} user={user} myCloud={myCloud} />
       </section>
-      <section className="text-center mt-16">
+      <section className="text-center m-16">
         <Link href="/" className="link">
           Go to all places
         </Link>
