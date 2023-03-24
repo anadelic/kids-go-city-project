@@ -1,8 +1,14 @@
 'use client';
 
-import { AddressAutofill } from '@mapbox/search-js-react';
+import dynamic from 'next/dynamic';
+// import { AddressAutofill } from '@mapbox/search-js-react';
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
+
+const AddressAutofill = dynamic(
+  () => import('@mapbox/search-js-react').then((mod) => mod.AddressAutofill),
+  { ssr: false },
+);
 
 export default function AddingNewPlace(props) {
   const [placeName, setPlaceName] = useState('');
@@ -149,13 +155,13 @@ export default function AddingNewPlace(props) {
           <label className="mt-4">
             Adress:
             <br />
-            <AddressAutofill accessToken="pk.eyJ1IjoibWFrYS1tZWwiLCJhIjoiY2xlZnJ3aHQxMHR3aDN2bWo0ZGNuaXpydiJ9.zDK9r8D3casdEKHenAnYJg">
+            <AddressAutofill accessToken={props.myKey}>
               <input
                 className="input input-bordered input-sm w-full max-w-xs mt-4 bg-white"
                 value={placeAdress}
                 onChange={(event) => setPlaceAdress(event.currentTarget.value)}
                 autoComplete="address-line1"
-              />{' '}
+              />
             </AddressAutofill>
           </label>
 
