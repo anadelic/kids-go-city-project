@@ -61,7 +61,7 @@ export async function POST(
   if (!userWithPasswordHash) {
     // consider using the same output for user or password not valid
     return NextResponse.json(
-      { errors: [{ message: 'user not found' }] },
+      { errors: [{ message: 'username and/or password incorrect' }] },
       { status: 401 },
     );
   }
@@ -75,7 +75,7 @@ export async function POST(
   if (!isPasswordValid) {
     // consider using the same output for user or password not valid
     return NextResponse.json(
-      { errors: [{ message: 'password is not valid' }] },
+      { errors: [{ message: 'username and/or password incorrect' }] },
       { status: 401 },
     );
   }
