@@ -21,7 +21,7 @@ export default function AddingNewPlace(props) {
   const [value, setValue] = useState('indoor');
   const router = useRouter();
 
-  // fetching coordinates from mapbox api
+  // fetching the coordinates from the mapbox api and sending them to the database
   useEffect(() => {
     const timer = setTimeout(() => {
       fetch(
@@ -35,7 +35,7 @@ export default function AddingNewPlace(props) {
     return () => clearTimeout(timer);
   }, [placeAdress, props.myKey]);
 
-  // upload an imge to cloudinary
+  // upload an imge to the cloudinary
 
   function handleOnChange(changeEvent) {
     const reader = new FileReader();
@@ -78,12 +78,14 @@ export default function AddingNewPlace(props) {
 
   return (
     <div>
+      {/* first form for uploading an image to the cloudinary */}
       <form method="post" onChange={handleOnChange} onSubmit={handleOnSubmit}>
         <div>
           <label>
             Choose an image:
             <br />
             <input
+              required
               type="file"
               name="file"
               className="file-input file-input-bordered file-input-xs w-full max-w-xs mt-4 bg-white"
@@ -96,6 +98,7 @@ export default function AddingNewPlace(props) {
         </button>
         <p>{uploadData && <p> Your image is uploaded</p>}</p>
       </form>
+      {/* Second Form for sending a POST request for creating a new location */}
       <form
         onSubmit={async (event) => {
           event.preventDefault();
@@ -133,6 +136,7 @@ export default function AddingNewPlace(props) {
             Name:
             <br />
             <input
+              required
               className="input input-bordered input-sm w-full max-w-xs mt-4 bg-white"
               value={placeName}
               onChange={(event) => setPlaceName(event.currentTarget.value)}
@@ -143,6 +147,7 @@ export default function AddingNewPlace(props) {
             Description:
             <br />
             <textarea
+              required
               className="textarea textarea-bordered mt-4 bg-white"
               value={placeDescription}
               onChange={(event) =>
@@ -153,10 +158,12 @@ export default function AddingNewPlace(props) {
           <br />
 
           <label className="mt-4">
-            Adress:
+            Address:
             <br />
+            {/* using mapbox api for address autofill */}
             <AddressAutofill accessToken={props.myKey}>
               <input
+                required
                 className="input input-bordered input-sm w-full max-w-xs mt-4 bg-white"
                 value={placeAdress}
                 onChange={(event) => setPlaceAdress(event.currentTarget.value)}
