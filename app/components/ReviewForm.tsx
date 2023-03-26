@@ -53,6 +53,7 @@ export default function AddingPost(props: Props) {
       <label>
         Title: <br />
         <input
+          required
           className="input input-bordered input-sm w-full max-w-xs bg-white"
           value={title}
           onChange={(event) => setTitle(event.currentTarget.value)}
@@ -63,6 +64,7 @@ export default function AddingPost(props: Props) {
       <label>
         Review text: <br />
         <textarea
+          required
           className="textarea textarea-bordered textarea-lg w-full max-w-xs bg-white"
           value={reviewText}
           onChange={(event) => setReviewText(event.currentTarget.value)}
