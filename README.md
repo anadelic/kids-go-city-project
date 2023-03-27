@@ -5,7 +5,7 @@
 ---
 
 **Landing Page** User can check places on a map and filter between outdoor and indoor places.
-![](../public/Screenshot%202023-03-26%20215622.png)
+![landing_Page](images/landingPage.png)
 
 **User reviews and single location page:** Here user can see the single location. In order to write a review, users need to register and make an account.![](../../OneDrive/Desktop/projectimages/Screenshot%202023-03-26%20215707.png)
 
