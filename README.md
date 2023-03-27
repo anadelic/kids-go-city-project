@@ -15,7 +15,7 @@
 **Weather page:** Here user can check weather in real time and based on the temperature the list of suggestion will be shown.
 ![weather](public/images/weather.png)
 
-**Crafts page** Crafts videos streamed from Amazon cloud front.
+**Crafts page** Crafts videos streamed from Amazon CloudFront.
 ![crafts](public/images/crafts.png)
 
 ---
