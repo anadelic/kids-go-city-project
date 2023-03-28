@@ -138,7 +138,7 @@ export default function AddingNewPlace(props) {
             <br />
             <input
               required
-              className="input input-bordered input-sm w-full max-w-xs mt-4 bg-white"
+              className="input input-bordered input-sm w-full max-w-xs bg-white"
               value={placeName}
               onChange={(event) => setPlaceName(event.currentTarget.value)}
             />
@@ -149,7 +149,7 @@ export default function AddingNewPlace(props) {
             <br />
             <textarea
               required
-              className="textarea textarea-bordered mt-4 bg-white"
+              className="textarea textarea-bordered bg-white"
               value={placeDescription}
               onChange={(event) =>
                 setPlaceDescription(event.currentTarget.value)
@@ -165,7 +165,7 @@ export default function AddingNewPlace(props) {
             <AddressAutofill accessToken={props.myKey}>
               <input
                 required
-                className="input input-bordered input-sm w-full max-w-xs mt-4 bg-white"
+                className="input input-bordered input-sm w-full max-w-xs bg-white"
                 value={placeAdress}
                 onChange={(event) => setPlaceAdress(event.currentTarget.value)}
                 autoComplete="address-line1"
