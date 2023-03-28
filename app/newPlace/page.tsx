@@ -3,7 +3,6 @@ import Link from 'next/link';
 import { redirect } from 'next/navigation';
 import { getValidSessionByToken } from '../../databasa/session';
 import { getUserBySessionToken } from '../../databasa/user';
-import { createTokenFromSecret } from '../../utils/csrf';
 import AddingNewPlace from '../components/AddPlaceForm';
 
 export const dynamic = 'force-dynamic';
@@ -49,12 +48,7 @@ export default async function NewPlacd() {
         <h1 className="text-center">Add your favorite place in Vienna</h1>
       </section>
       <section className="flex justify-center items-center mt-16 flex-col">
-        <AddingNewPlace
-          myKey={myKey}
-          user={user}
-          myCloud={myCloud}
-
-        />
+        <AddingNewPlace myKey={myKey} user={user} myCloud={myCloud} />
       </section>
       <section className="text-center m-16">
         <Link href="/" className="link">

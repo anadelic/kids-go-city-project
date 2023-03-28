@@ -3,7 +3,6 @@ import { NextRequest, NextResponse } from 'next/server';
 import { z } from 'zod';
 import { createNewPlace, Places } from '../../../databasa/places';
 import { getUserBySessionToken } from '../../../databasa/user';
-import { validateTokenAgainstSecret } from '../../../utils/csrf';
 
 const placeType = z.object({
   placeName: z.string(),
@@ -62,14 +61,14 @@ export async function POST(
   }
 
   // validate csrf token to make sure the request happens from my server
-  if (!validateTokenAgainstSecret(user.csrfSecret, result.data.csrfToken)) {
-    return NextResponse.json(
-      {
-        error: 'CSRF token is not valid',
-      },
-      { status: 400 },
-    );
-  }
+  // if (!validateTokenAgainstSecret(user.csrfSecret, result.data.csrfToken)) {
+  //   return NextResponse.json(
+  //     {
+  //       error: 'CSRF token is not valid',
+  //     },
+  //     { status: 400 },
+  //   );
+  // }
 
   const newPlace = await createNewPlace(
     result.data.placeName,
