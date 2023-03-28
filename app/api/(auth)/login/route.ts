@@ -6,7 +6,8 @@ import { z } from 'zod';
 import { createSession } from '../../../../databasa/session';
 import { getUserByUsernameWithPasswordHash } from '../../../../databasa/user';
 import { createSerializedRegisterSessionTokenCookie } from '../../../../utils/cookies';
-import { createCsrfSecret } from '../../../../utils/csrf';
+
+// import { createCsrfSecret } from '../../../../utils/csrf';
 
 const userSchema = z.object({
   username: z.string(),
@@ -86,14 +87,10 @@ export async function POST(
   const token = crypto.randomBytes(80).toString('base64');
 
   // create csrf seed
-  const csrfSecret = createCsrfSecret();
+  // const csrfSecret = createCsrfSecret();
 
   // - create the session
-  const session = await createSession(
-    token,
-    userWithPasswordHash.id,
-    csrfSecret,
-  );
+  const session = await createSession(token, userWithPasswordHash.id);
 
   if (!session) {
     return NextResponse.json(

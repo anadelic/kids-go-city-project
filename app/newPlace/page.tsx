@@ -35,7 +35,7 @@ export default async function NewPlacd() {
     redirect('/login?returnTo=/newPlace');
   }
 
-  const csrfToken = createTokenFromSecret(session.csrfSecret);
+  // const csrfToken = createTokenFromSecret(session.csrfSecret);
 
   // 2. validate that session
   // 3. get the user profile matching the session
@@ -53,7 +53,7 @@ export default async function NewPlacd() {
           myKey={myKey}
           user={user}
           myCloud={myCloud}
-          csrfToken={csrfToken}
+
         />
       </section>
       <section className="text-center m-16">

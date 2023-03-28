@@ -116,7 +116,6 @@ export default function AddingNewPlace(props) {
               latCoord: apiData[1],
               longCoord: apiData[0],
               placeType: value,
-              csrfToken: props.csrfToken,
             }),
           });
 

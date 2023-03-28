@@ -19,15 +19,11 @@ export const getUsers = cache(async () => {
 });
 
 export const getUserBySessionToken = cache(async (token: string) => {
-  const [user] = await sql<
-    { id: number; username: string; csrfSecret: string }[]
-  >`
+  const [user] = await sql<{ id: number; username: string }[]>`
     SELECT
       users.id,
-      users.username,
-      sessions.csrf_secret
-
-    FROM
+      users.username
+      FROM
       users
     INNER JOIN
       sessions ON (
