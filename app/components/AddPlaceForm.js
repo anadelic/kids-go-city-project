@@ -96,7 +96,7 @@ export default function AddingNewPlace(props) {
         <button className="btn btn-sm bg-brick border-white text-white">
           Upload
         </button>
-        <p>{uploadData && <p> Your image is uploaded</p>}</p>
+        <div>{uploadData && <p> Your image is uploaded</p>}</div>
       </form>
       {/* Second Form for sending a POST request for creating a new location */}
       <form
@@ -116,6 +116,7 @@ export default function AddingNewPlace(props) {
               latCoord: apiData[1],
               longCoord: apiData[0],
               placeType: value,
+              csrfToken: props.csrfToken,
             }),
           });
 

@@ -3,6 +3,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { z } from 'zod';
 import { createNewPlace, Places } from '../../../databasa/places';
 import { getUserBySessionToken } from '../../../databasa/user';
+import { validateTokenAgainstSecret } from '../../../utils/csrf';
 
 const placeType = z.object({
   placeName: z.string(),
@@ -13,6 +14,7 @@ const placeType = z.object({
   latCoord: z.number(),
   longCoord: z.number(),
   placeType: z.string(),
+  csrfToken: z.string(),
 });
 
 export type PlaceResponseBodyPost =
@@ -54,6 +56,16 @@ export async function POST(
     return NextResponse.json(
       {
         error: 'Please add title and review text',
+      },
+      { status: 400 },
+    );
+  }
+
+  // validate csrf token to make sure the request happens from my server
+  if (!validateTokenAgainstSecret(user.csrfSecret, result.data.csrfToken)) {
+    return NextResponse.json(
+      {
+        error: 'CSRF token is not valid',
       },
       { status: 400 },
     );
