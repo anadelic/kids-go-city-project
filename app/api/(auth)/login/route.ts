@@ -6,6 +6,7 @@ import { z } from 'zod';
 import { createSession } from '../../../../databasa/session';
 import { getUserByUsernameWithPasswordHash } from '../../../../databasa/user';
 import { createSerializedRegisterSessionTokenCookie } from '../../../../utils/cookies';
+import { createCsrfSecret } from '../../../../utils/csrf';
 
 // import { createCsrfSecret } from '../../../../utils/csrf';
 
@@ -87,10 +88,14 @@ export async function POST(
   const token = crypto.randomBytes(80).toString('base64');
 
   // create csrf seed
-  // const csrfSecret = createCsrfSecret();
+  const csrfSecret = createCsrfSecret();
 
   // - create the session
-  const session = await createSession(token, userWithPasswordHash.id);
+  const session = await createSession(
+    token,
+    userWithPasswordHash.id,
+    csrfSecret,
+  );
 
   if (!session) {
     return NextResponse.json(

@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { redirect } from 'next/navigation';
 import { getValidSessionByToken } from '../../databasa/session';
 import { getUserBySessionToken } from '../../databasa/user';
+import { createTokenFromSecret } from '../../utils/csrf';
 import AddingNewPlace from '../components/AddPlaceForm';
 
 export const dynamic = 'force-dynamic';
@@ -27,6 +28,7 @@ export default async function NewPlacd() {
   const session =
     sessionTokenCookie &&
     (await getValidSessionByToken(sessionTokenCookie.value));
+  console.log('session', session);
 
   // for example you may also check if session user is an admin role
 
@@ -34,7 +36,8 @@ export default async function NewPlacd() {
     redirect('/login?returnTo=/newPlace');
   }
 
-  // const csrfToken = createTokenFromSecret(session.csrfSecret);
+  const csrfToken = createTokenFromSecret(session.csrfSecret);
+  console.log('csrf', csrfToken);
 
   // 2. validate that session
   // 3. get the user profile matching the session
@@ -48,7 +51,12 @@ export default async function NewPlacd() {
         <h1 className="text-center">Add your favorite place in Vienna</h1>
       </section>
       <section className="flex justify-center items-center mt-16 flex-col">
-        <AddingNewPlace myKey={myKey} user={user} myCloud={myCloud} />
+        <AddingNewPlace
+          myKey={myKey}
+          user={user}
+          myCloud={myCloud}
+          csrfToken={csrfToken}
+        />
       </section>
       <section className="text-center m-16">
         <Link href="/" className="link">
