@@ -13,10 +13,6 @@
 
 ![landing_Page](public/images/landingPage.png)
 
-**User reviews and single location page:** Here user can see the single location. In order to write a review, users need to register and make an account.
-<br>
-![review](public/images/review.png)
-
 **Add a new place page:** Here user can add a new location, upload an image of the location, write a description and set the type of the location to outdoor or indoor. Location will be added to the database and it will be shown on the map.
 <br>
 ![newPlace](public/images/addLocation.png)
@@ -25,9 +21,13 @@
 <br>
 ![weather](public/images/weather.png)
 
-**Crafts page** Crafts videos streamed from Amazon CloudFront.
+**Crafts page** Creating an S3 bucket, uploading the videos and creating CloudFront distribution.
 <br>
 ![crafts](public/images/crafts.png)
+
+**User reviews and single location page:** Here user can see the single location. In order to write a review, users need to register and make an account.
+<br>
+![review](public/images/review.png)
 
 **Database Schema**
 ![database](public/images/database.png)
