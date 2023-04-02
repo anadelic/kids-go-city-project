@@ -1,9 +1,13 @@
 /** @type {import('next').NextConfig} */
+const withPWA = require('@ducanh2912/next-pwa').default;
 
-const nextConfig = {
+const conf = {
   experimental: {
     appDir: true,
-    serverComponentsExternalPackages: ['bcrypt'],
+  },
+  webpack: (config) => {
+    config.externals = [...config.externals, 'bcrypt'];
+    return config;
   },
   images: {
     domains: ['res.cloudinary.com'],
@@ -15,5 +19,13 @@ const nextConfig = {
     ignoreBuildErrors: true,
   },
 };
+
+const nextConfig = withPWA({
+  dest: 'public',
+  register: true,
+  skipWaiting: true,
+  // disable: process.env.NODE_ENV === 'development',
+  // runtimeCaching,
+})(conf);
 
 module.exports = nextConfig;

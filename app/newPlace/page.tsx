@@ -59,8 +59,11 @@ export default async function NewPlacd() {
         />
       </section>
       <section className="text-center m-16">
-        <Link href="/" className="link">
-          Go to all places
+        <Link
+          href="/"
+          className="btn btn-sm bg-second border-white mt-4 text-white"
+        >
+          See all locations
         </Link>
       </section>
     </main>

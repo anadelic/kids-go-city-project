@@ -6,6 +6,14 @@ import Footer from './components/Footer';
 
 export const dynamic = 'force-dynamic';
 
+export const metadata = {
+  title: {
+    default: 'Vienna with little ones',
+    template: '%s | Vienaa with little ones',
+  },
+  manifest: '/manifest.json',
+};
+
 type Props = {
   children: React.ReactNode;
 };
