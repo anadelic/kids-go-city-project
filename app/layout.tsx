@@ -37,7 +37,7 @@ export default async function RootLayout(props: Props) {
                 </Link>
                 <Link tabIndex={0} href="/newPlace">
                   <p className="text-gray-300 hover:text-second text-large font-poppins transition duration-700 ease-in-out px-2">
-                    Add a new place
+                    Add a new location
                   </p>
                 </Link>
                 <Link tabIndex={0} href="/crafts">

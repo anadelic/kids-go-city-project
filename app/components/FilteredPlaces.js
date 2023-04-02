@@ -57,7 +57,7 @@ export default function SelectForm(props) {
               return (
                 <div
                   key={`product-${place.id}`}
-                  className="bg-white rounded-lg shadow-lg p-4 mt-16 w-auto"
+                  className="bg-white rounded-lg shadow-lg p-4 mt-16 w-auto flex justify-center items-center"
                 >
                   <Link tabIndex={0} href={`/allPlaces/${place.id}`}>
                     <Image

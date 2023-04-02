@@ -1,7 +1,7 @@
 export const places = [
   {
     id: '1',
-    place_name: 'Dschungel Theather',
+    place_name: 'Dschungel Theater',
     place_description:
       "children's theater is a vibrant and exciting art form that brings together the joys of performance with the wonder and curiosity of childhood",
     latcoord: 48.202175499999996,
@@ -13,7 +13,7 @@ export const places = [
   },
   {
     id: '2',
-    place_name: 'Lilarum Theather',
+    place_name: 'Lilarum Theater',
     place_description:
       'Step into a world of wonder and imagination at Lilarum theater',
     latcoord: 48.200777,

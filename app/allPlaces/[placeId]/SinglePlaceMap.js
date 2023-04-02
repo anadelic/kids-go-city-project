@@ -9,14 +9,14 @@ import { MapContainer } from 'react-leaflet/MapContainer';
 import { TileLayer } from 'react-leaflet/TileLayer';
 
 export default function SinglePlaceMap(props) {
-  const position = [48.2042154830387, 16.368015018501982];
+  const position = [props.places.latcoord, props.places.longcoord];
 
   return (
     <div>
       <MapContainer
         className="rounded-md shadow-x "
         center={position}
-        zoom={11}
+        zoom={13}
         scrollWheelZoom={true}
         style={{ height: 350, width: 350 }}
         // whenCreated={setMap}

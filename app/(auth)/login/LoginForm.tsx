@@ -61,6 +61,7 @@ export default function LoginForm(props: { returnTo?: string | string[] }) {
           Password:
           <br />
           <input
+            type="password"
             className="shadow appearance-none border border-grey-500 rounded w-3/4 py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline bg-white"
             value={password}
             onChange={(event) => setPassword(event.currentTarget.value)}
